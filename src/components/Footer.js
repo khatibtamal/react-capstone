@@ -1,9 +1,11 @@
+import footerLogo from '../images/footer_logo.jpg';
+
 function Footer() {
     return (
         <footer>
             <ul>
                 <li>
-                    <img src="../images/footer_logo.jpg" alt="Footer Logo" />
+                    <img src={footerLogo} alt="Footer Logo" />
                 </li>
                 <li>
                     Navigation

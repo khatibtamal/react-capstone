@@ -1,30 +1,37 @@
+import navLogo from '../images/header_logo.jpg';
+
 function Nav() {
     return (
-        <nav>
-            <ul>
+        <nav className="baseRowContainer navContainer">
+            <div className="columnFiller"></div>
+            <ul className='noListStyle navBarContainer'>
                 <li>
-                    <img src="../images/header_logo.jpg" alt="Header Logo" />
+                    <img src={navLogo} alt="Header Logo" height={80} width={240}/>
                 </li>
                 <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Menu</a>
-                </li>
-                <li>
-                    <a href="#">Reservations</a>
-                </li>
-                <li>
-                    <a href="#">Order Online</a>
-                </li>
-                <li>
-                    <a href="#">Login</a>
+                    <ul className='noListStyle navBarNavItemsContainer'>
+                        <li>
+                            <a href="#"><span className='navBarNavItem'>HOME</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span className='navBarNavItem'>ABOUT</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span className='navBarNavItem'>MENU</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span className='navBarNavItem'>RESERVATIONS</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span className='navBarNavItem'>ORDER ONLINE</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span className='navBarNavItem'>LOGIN</span></a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-            
+            <div className="columnFiller"></div>
         </nav>
     );
   }
