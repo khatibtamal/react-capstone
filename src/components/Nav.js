@@ -1,8 +1,8 @@
-import navLogo from '../images/header_logo.jpg';
+import navLogo from '../images/header_logo.svg';
 
 function Nav() {
     return (
-        <nav className="baseRowContainer navContainer">
+        <nav className="baseRowContainer">
             <div className="columnFiller"></div>
             <ul className='noListStyle navBarContainer'>
                 <li>
