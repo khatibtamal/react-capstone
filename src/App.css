@@ -7,6 +7,44 @@
   grid-template-columns: 2fr 8fr 2fr;
 }
 
+article {
+  font-family: 'Markazi Text';
+}
+
+article > h1 {
+  font-weight: bold;
+  font-size: 64px;
+  color: #F4CE14;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+article > h2 {
+  font-weight: normal;
+  font-size: 40px;
+  color: white;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+article > p {
+  font-weight: normal;
+  font-size: 32px;
+  color: white;
+  margin-bottom: 0%;
+}
+
+button {
+  width: 250px;
+  height: 60px;
+  border-radius: 25px;
+  border: none;
+  background-color: #F4CE14;
+  font-family: 'Markazi Text';
+  font-weight: bold;
+  font-size: 36px;
+}
+
 .navBarContainer {
   display: grid;
   grid-template-columns: 2fr 6fr;
@@ -62,3 +100,20 @@
   text-decoration: none;
 }
 
+.reserveTablePromoContainer {
+  background: linear-gradient(#495E57 85%, transparent 15%);
+}
+
+.reserveTablePromoContentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.reserveTablePromoContentContainer > li > article {
+  margin-bottom: 5%;
+}
+
+.reserveTablePromoContentContainer > li > img {
+  border-radius: 35px;
+  margin-left: 15%;
+}
