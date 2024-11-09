@@ -18,6 +18,6 @@ function PromoReserveTable() {
             <div className="columnFiller"></div>
         </div>
     );
-  }
-  
-  export default PromoReserveTable;
+}
+
+export default PromoReserveTable;

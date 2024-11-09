@@ -254,3 +254,24 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.aboutContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aboutContainer > li:first-child {
+  margin-right: 8%;
+}
+
+.aboutContainer > li:nth-child(2) {
+  margin-top: 8%;
+}
+
+.aboutContainer > li > article > h2 {
+  color: black;
+}
+
+.aboutContainer > li > article > p {
+  color: black;
+}
