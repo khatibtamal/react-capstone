@@ -9,6 +9,8 @@ import './Nav.css';
 import './OnlineDeliveryMenuCard.css';
 import './PromoWeeksSpecials.css';
 import './ReserveTablePromo.css';
+import './Testimonials.css';
+import './TestimonialsCard.css';
 
 function App() {
   return (

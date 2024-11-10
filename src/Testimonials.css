@@ -1,0 +1,20 @@
+.testimonialsBaseContainer {
+    background-color: #495E57;
+}
+
+.testimonialsBaseContainer > div > h1 {
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    font-size: 64px;
+    color: #F4CE14;
+    width: 100%;
+    text-align: center;
+}
+
+.testimonialsBaseContainer > div > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+}

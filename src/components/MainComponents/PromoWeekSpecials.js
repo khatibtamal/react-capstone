@@ -41,5 +41,5 @@ function PromoWeekSpecials() {
         </div>
     );
 }
-  
+
 export default PromoWeekSpecials;

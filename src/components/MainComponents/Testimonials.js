@@ -31,26 +31,21 @@ function Testimonials() {
             body: "The most disgusting food ever. Was not expecting to puke this hard after eating."
         }
     ]
+
     return (
-        <div className="baseRowContainer testimonialsBaseContainer">
-            <div className="columnFiller"></div>
-            <ul className='noListStyle testimonialsContainer'>
-                <li>
-                    <h1>Testimonials</h1>
-                </li>
-                <li>
-                    <div className="testimonialCards">
-                        {testimonialsData.map((testimonial) => {
-                            return (
-                                <TestimonialsCard name={testimonial.name} imageSrc={testimonial.imageSrc} stars={testimonial.stars} body={testimonial.body}/>
-                            );
-                        })}
-                    </div>
-                </li>
-            </ul>
-            <div className="columnFiller"></div>
+        <div className="testimonialsBaseContainer">
+            <div className="baseFlexRowContainer">
+                <h1>Testimonials</h1>
+                <div>
+                    {testimonialsData.map((testimonial) => {
+                        return (
+                            <TestimonialsCard name={testimonial.name} imageSrc={testimonial.imageSrc} stars={testimonial.stars} body={testimonial.body}/>
+                        );
+                    })}
+                </div>
+            </div>
         </div>
     );
-  }
-  
-  export default Testimonials;
+}
+
+export default Testimonials;
