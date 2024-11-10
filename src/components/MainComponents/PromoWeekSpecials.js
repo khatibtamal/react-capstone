@@ -1,7 +1,6 @@
 import bruchettaImage from '../../images/bruchetta.png';
 import greekSaladImage from '../../images/greek_salad.jpg';
 import lemonDesertImage from '../../images/lemon_dessert.jpg';
-import LittleLemonButton from './MiscComponents/LittleLemonButton';
 import OnlineDeliveryMenuCard from './MiscComponents/OnlineDeliveryMenuCard';
 
 function PromoWeekSpecials() {
@@ -33,7 +32,7 @@ function PromoWeekSpecials() {
                 <li>
                     <div className='onlineWeekSpecialsPromoHeaderContainer'>
                         <h1>This weeks specials!</h1>
-                        <LittleLemonButton label="Online Menu" />
+                        <button>Online Menu</button>
                     </div>
                 </li>
                 <li>

@@ -1,0 +1,26 @@
+.littleLemonBio {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Markazi Text';
+    width: 50%;
+}
+
+.littleLemonBio > h1 {
+    font-weight: bold;
+    font-size: 64px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.littleLemonBio > h2 {
+    font-weight: normal;
+    font-size: 40px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.littleLemonBio > p {
+    font-weight: normal;
+    font-size: 32px;
+    margin-bottom: 5%;
+}

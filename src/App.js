@@ -1,15 +1,18 @@
+import './About.css';
 import './App.css';
-import './Footer.css';
-import './Nav.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
-// import Main from './components/Main';
+import Main from './components/Main';
+import './Footer.css';
+import './LittleLemonBio.css';
+import './Nav.css';
+import './ReserveTablePromo.css';
 
 function App() {
   return (
     <>
       <Header />
-      {/* <Main /> */}
+      <Main />
       <Footer />
     </>
   );

@@ -1,0 +1,9 @@
+.reserveTablePromoContainer {
+    background: linear-gradient(#495E57 85%, transparent 15%);
+}
+
+.reserveTablePromoContainer > div > img {
+    border-radius: 35px;
+    margin-left: 6%;
+    margin-top: 2%;
+}
