@@ -1,0 +1,59 @@
+.onlineDeliveryMenuCardContainer {
+    width: 260px;
+    height: 515px;
+}
+
+.onlineDeliveryMenuCardContainer > img:first-child{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.onlineDeliveryMenuCardContainer > div {
+    background-color: #EDEFEE;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.onlineDeliveryMenuCardContainer > div > span {
+    font-family: "Karla";
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:first-child {
+    display: flex;
+    justify-content: space-around;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:first-child > span {
+    font-family: "Karla";
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:first-child > span:nth-of-type(1) {
+    color: black;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:first-child > span:nth-of-type(2) {
+    color: #EE9972;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:nth-of-type(2) {
+    display: flex;
+    justify-content: space-around;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:nth-of-type(2) > span {
+    font-family: "Karla";
+    font-weight: medium;
+    font-size: 24px;
+}
+
+.onlineDeliveryMenuCardContainer > div > div:nth-of-type(2) > img {
+    font-family: "Karla";
+    font-weight: medium;
+    font-size: 24px;
+}

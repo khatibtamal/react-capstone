@@ -26,28 +26,20 @@ function PromoWeekSpecials() {
     ]
     
     return (
-        <div className='baseRowContainer onlineWeekSpecialsPromoContainer'>
-            <div className="columnFiller"></div>
-            <ul className='noListStyle'>
-                <li>
-                    <div className='onlineWeekSpecialsPromoHeaderContainer'>
-                        <h1>This weeks specials!</h1>
-                        <button>Online Menu</button>
-                    </div>
-                </li>
-                <li>
-                    <div className='onlineMenuCardsContainer'>
-                        {
-                            specialsData.map((special) => {
-                                return <OnlineDeliveryMenuCard imageSrc={special.imgSource} title={special.title} price={special.price} body={special.body}/>
-                            })
-                        }
-                    </div>
-                </li>
-            </ul>
-            <div className="columnFiller"></div>
+        <div className='promoWeeksSpecialsContainer'>
+            <div className='baseFlexRowContainer'>
+                <h1>This weeks specials!</h1>
+                <button>Online Menu</button>
+            </div>
+            <div className='baseFlexRowContainer'>
+                {
+                    specialsData.map((special) => {
+                        return <OnlineDeliveryMenuCard imageSrc={special.imgSource} title={special.title} price={special.price} body={special.body}/>
+                    })
+                }
+            </div>
         </div>
     );
-  }
+}
   
-  export default PromoWeekSpecials;
+export default PromoWeekSpecials;

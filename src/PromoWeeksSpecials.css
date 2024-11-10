@@ -1,0 +1,7 @@
+.promoWeeksSpecialsContainer > div:first-child {
+    margin-top: 3%;
+}
+
+.promoWeeksSpecialsContainer > * {
+    justify-content: space-between;
+}

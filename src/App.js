@@ -6,6 +6,8 @@ import Main from './components/Main';
 import './Footer.css';
 import './LittleLemonBio.css';
 import './Nav.css';
+import './OnlineDeliveryMenuCard.css';
+import './PromoWeeksSpecials.css';
 import './ReserveTablePromo.css';
 
 function App() {
