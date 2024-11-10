@@ -1,0 +1,17 @@
+.navBarContainer {
+    display: flex;
+}
+
+.navBarContainer > img {
+    margin-top: 3%;
+}
+
+.navBarContainer > a {
+    text-decoration: none;
+    font-family: 'Markazi Text';
+    font-weight: medium;
+    font-size: 28px;
+    color: black;
+    margin-top: 4%;
+    margin-left: 23px;
+}

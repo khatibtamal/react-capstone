@@ -1,0 +1,27 @@
+footer {
+    background-color: #495E57;
+}
+
+footer > div {
+    justify-content: space-between;
+}
+
+footer > div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+footer > div > div > h2 {
+    font-family: 'Karla';
+    font-weight: medium;
+    font-size: 26px;
+    color: #F4CE14;
+}
+
+footer > div > div > a {
+    text-decoration: none;
+    font-family: 'Karla';
+    font-weight: normal;
+    font-size: 22px;
+    color: white;
+}

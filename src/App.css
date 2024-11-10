@@ -57,53 +57,6 @@ button {
   font-size: 36px;
 }
 
-.navBarContainer {
-  display: flex;
-}
-
-.navBarContainer > img {
-  margin-top: 3%;
-}
-
-.navBarContainer > a {
-  text-decoration: none;
-  font-family: 'Markazi Text';
-  font-weight: medium;
-  font-size: 28px;
-  color: black;
-  margin-top: 4%;
-  margin-left: 23px;
-}
-
-.baseFooterContainer {
-  background-color: #495E57;
-}
-
-.footerContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 2fr);
-}
-
-.footerNavItemsContainer > li:first-child {
-  font-family: 'Karla';
-  font-weight: medium;
-  font-size: 26px;
-  color: #F4CE14;
-  margin-top: 20%;
-  margin-bottom: 12%;
-}
-
-.footerNavItemsContainer > li:nth-child(n + 2) > a > span {
-  font-family: 'Karla';
-  font-weight: normal;
-  font-size: 22px;
-  color: white;
-}
-
-.footerNavItemsContainer > li:nth-child(n + 2) > a {
-  text-decoration: none;
-}
-
 .reserveTablePromoContainer {
   background: linear-gradient(#495E57 85%, transparent 15%);
 }
