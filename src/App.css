@@ -6,6 +6,14 @@ main {
   flex-direction: column;
 }
 
+.baseFlexRowContainer {
+  margin-left: 19%;
+  margin-bottom: 1%;
+  width: 62%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .baseRowContainer {
   display: grid;
   grid-template-columns: 2fr 8fr 2fr;
@@ -50,29 +58,21 @@ button {
 }
 
 .navBarContainer {
-  display: grid;
-  grid-template-columns: 2fr 6fr;
-}
-
-.navBarNavItemsContainer {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
-.navBarNavItemsContainer > * {
-  margin-top: 4%;
+.navBarContainer > img {
+  margin-top: 3%;
 }
 
-.navBarNavItemsContainer > li > a {
+.navBarContainer > a {
   text-decoration: none;
-}
-
-.navBarNavItem {
   font-family: 'Markazi Text';
-  font-weight: bold;
+  font-weight: medium;
   font-size: 28px;
   color: black;
+  margin-top: 4%;
+  margin-left: 23px;
 }
 
 .baseFooterContainer {

@@ -2,38 +2,16 @@ import navLogo from '../images/header_logo.svg';
 
 function Nav() {
     return (
-        <nav className="baseRowContainer">
-            <div className="columnFiller"></div>
-            <ul className='noListStyle navBarContainer'>
-                <li>
-                    <img src={navLogo} alt="Header Logo" height={80} width={240}/>
-                </li>
-                <li>
-                    <ul className='noListStyle navBarNavItemsContainer'>
-                        <li>
-                            <a href="#"><span className='navBarNavItem'>HOME</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span className='navBarNavItem'>ABOUT</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span className='navBarNavItem'>MENU</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span className='navBarNavItem'>RESERVATIONS</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span className='navBarNavItem'>ORDER ONLINE</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span className='navBarNavItem'>LOGIN</span></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div className="columnFiller"></div>
+        <nav className="baseFlexRowContainer navBarContainer">
+            <img src={navLogo} alt="Header Logo" height={50} width={205}/>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">MENU</a>
+            <a href="#">RESERVATIONS</a>
+            <a href="#">ORDER ONLINE</a>
+            <a href="#">LOGIN</a>
         </nav>
     );
-  }
-  
-  export default Nav;
+}
+
+export default Nav;

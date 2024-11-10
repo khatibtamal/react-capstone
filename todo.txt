@@ -1,3 +1,4 @@
 1. Reusable flexbox grid
 2. Show correctly on desktop resizing
 3. Show correctly on mobile devices
+4. Double check on the divs, articles, asides tags
