@@ -24,3 +24,37 @@
     font-size: 32px;
     margin-bottom: 5%;
 }
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 900px) {
+    .littleLemonBio > h1 {
+        font-size: 55px;
+    }
+
+    .littleLemonBio > h2 {
+        font-size: 38px;
+    }
+
+    .littleLemonBio > p {
+        font-size: 30px;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .littleLemonBio {
+        width: 100%;
+    }
+
+    .littleLemonBio > h1 {
+        font-size: 44px;
+    }
+
+    .littleLemonBio > h2 {
+        font-size: 34px;
+    }
+
+    .littleLemonBio > p {
+        font-size: 28px;
+    }
+}

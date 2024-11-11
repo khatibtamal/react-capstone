@@ -52,8 +52,32 @@
     font-size: 24px;
 }
 
-.onlineDeliveryMenuCardContainer > div > div:nth-of-type(2) > img {
-    font-family: "Karla";
-    font-weight: medium;
-    font-size: 24px;
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .onlineDeliveryMenuCardContainer {
+        width: 150px;
+        height: 320px;
+    }
+
+    .onlineDeliveryMenuCardContainer > img:first-child{
+        height: 130px;
+        width: 150px;
+    }
+
+    .onlineDeliveryMenuCardContainer > div > div:first-child > span {
+        font-size: 16px;
+    }
+
+    .onlineDeliveryMenuCardContainer > div > span {
+        font-size: 16px;
+    }
+
+    .onlineDeliveryMenuCardContainer > div > div:nth-of-type(2) > span {
+        font-size: 16px;
+    }
+
+    .onlineDeliveryMenuCardContainer > div > div:nth-of-type(2) > img {
+        height: 10px;
+        width: 20px;
+    }
 }

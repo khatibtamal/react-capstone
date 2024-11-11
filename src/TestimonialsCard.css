@@ -36,3 +36,22 @@
     margin-top: 15%;
     margin-right: 15%;
 }
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .testimonialsCardContainer {
+        height: 230px;
+        width: 160px;
+    }
+
+    .testimonialsCardContentContainer > p {
+        font-family: 'Karla';
+        font-weight: normal;
+        font-size: 15px;
+    }
+
+    .testimonialRatingStars > * {
+        height: 12px;
+        width: 12px;
+    }
+}

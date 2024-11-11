@@ -1,5 +1,7 @@
 .navBarContainer {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 1%;
 }
 
@@ -14,5 +16,30 @@
     font-size: 28px;
     color: black;
     margin-top: 4%;
-    margin-left: 23px;
+}
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 900px) {
+    .navBarContainer > a {
+        font-size: 22px;
+        margin-top: 5%;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .navBarContainer {
+        margin-left: 2%;
+        margin-right: 5%;
+        margin-bottom: 2%;
+    }
+
+    .navBarContainer > img {
+        height: 40px;
+        width: 130px;
+    }
+
+    .navBarContainer > a:not(:last-child) {
+        display: none;
+    }
 }

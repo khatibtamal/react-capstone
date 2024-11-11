@@ -2,7 +2,7 @@ import deliveryLogo from '../../../images/delivery_logo.png';
 
 function OnlineDeliveryMenuCard(props) {
     return (
-        <div class="onlineDeliveryMenuCardContainer">
+        <div className="onlineDeliveryMenuCardContainer">
             <img src={props.imageSrc} height="240px" width="260px"/>
             <div>
                 <div>

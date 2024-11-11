@@ -18,3 +18,19 @@
     flex-wrap: wrap;
     margin-bottom: 5%;
 }
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 900px) {
+    .testimonialsBaseContainer > div > div {
+        justify-content: space-around;
+        row-gap: 15px;
+        margin-bottom: 5%;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .testimonialsBaseContainer > div > h1 {
+        font-size: 40px;
+    }
+}

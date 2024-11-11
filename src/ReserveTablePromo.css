@@ -7,3 +7,27 @@
     margin-left: 6%;
     margin-top: 2%;
 }
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 900px) {
+    .reserveTablePromoContainer > div > img {
+        height: 430px;
+        width: 340px;
+        margin-left: 0%;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .reserveTablePromoContainer {
+        background: #495E57;
+    }
+
+    .reserveTablePromoContainer > div {
+        margin-bottom: 5%;
+    }
+
+    .reserveTablePromoContainer > div > img {
+        display: none;
+    }
+}

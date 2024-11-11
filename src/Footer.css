@@ -25,3 +25,27 @@ footer > div > div > a {
     font-size: 22px;
     color: white;
 }
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    footer > div {
+        justify-content: space-around;
+    }
+
+    footer > div > div:nth-of-type(1) {
+        display: none;
+    }
+
+    footer > div > img {
+        height: 140px;
+        width: 90px;
+    }
+
+    footer > div > div > h2 {
+        font-size: 18px;
+    }
+    
+    footer > div > div > a {
+        font-size: 15px;
+    }
+}

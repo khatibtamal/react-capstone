@@ -2,6 +2,27 @@
     margin-top: 3%;
 }
 
+.promoWeeksSpecialsContainer > div:first-child > div > h1 {
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    font-size: 48px;
+    margin-top: 0%;
+}
+
 .promoWeeksSpecialsContainer > div > div {
     justify-content: space-between;
+}
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 900px) {
+    .promoWeeksSpecialsContainer > div > div {
+        justify-content: space-around;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 630px) {
+    .promoWeeksSpecialsContainer > div:first-child > div > h1 {
+        font-size: 28px;
+    }
 }
