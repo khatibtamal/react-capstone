@@ -34,7 +34,7 @@ function Testimonials() {
 
     return (
         <div className="outerBaseFlexRowContainer testimonialsBaseContainer">
-            <div className="baseFlexRowContainer">
+            <div>
                 <h1>Testimonials</h1>
                 <div>
                     {testimonialsData.map((testimonial) => {

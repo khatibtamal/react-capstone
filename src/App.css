@@ -8,7 +8,7 @@ main {
   justify-content: center;
 }
 
-.baseFlexRowContainer {
+.outerBaseFlexRowContainer > * {
   width: 62%;
   display: flex;
   flex-wrap: wrap;

@@ -3,7 +3,7 @@ import footerLogo from '../images/footer_logo.jpg';
 function Footer() {
     return (
         <footer className='outerBaseFlexRowContainer'>
-            <div className='baseFlexRowContainer'>
+            <div>
                 <img src={footerLogo} alt="Footer Logo" height={300} width={200}/>
                 <div>
                     <h2>Navigation</h2>

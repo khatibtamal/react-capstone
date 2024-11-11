@@ -4,7 +4,7 @@ import LittleLemonBio from "./MiscComponents/LittleLemonBio";
 function About() {
     return (
         <div className='outerBaseFlexRowContainer'>
-            <div className='baseFlexRowContainer aboutContainer'>
+            <div className='aboutContainer'>
                 <LittleLemonBio
                     h1Color="#F4CE14"
                     h2Color="black"

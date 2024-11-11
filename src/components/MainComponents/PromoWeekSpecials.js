@@ -28,13 +28,13 @@ function PromoWeekSpecials() {
     return (
         <div className='promoWeeksSpecialsContainer'>
             <div className='outerBaseFlexRowContainer'>
-                <div className='baseFlexRowContainer'>
+                <div>
                     <h1>This weeks specials!</h1>
                     <button>Online Menu</button>
                 </div>
             </div>
             <div className='outerBaseFlexRowContainer'>
-                <div className='baseFlexRowContainer'>
+                <div>
                     {
                         specialsData.map((special) => {
                             return <OnlineDeliveryMenuCard imageSrc={special.imgSource} title={special.title} price={special.price} body={special.body}/>
