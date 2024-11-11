@@ -1,5 +1,6 @@
 .navBarContainer {
     display: flex;
+    margin-bottom: 1%;
 }
 
 .navBarContainer > img {

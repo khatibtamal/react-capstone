@@ -33,7 +33,7 @@ function Testimonials() {
     ]
 
     return (
-        <div className="testimonialsBaseContainer">
+        <div className="outerBaseFlexRowContainer testimonialsBaseContainer">
             <div className="baseFlexRowContainer">
                 <h1>Testimonials</h1>
                 <div>

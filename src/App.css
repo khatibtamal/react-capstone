@@ -2,9 +2,13 @@ main {
   flex-direction: column;
 }
 
+.outerBaseFlexRowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .baseFlexRowContainer {
-  margin-left: 19%;
-  margin-bottom: 1%;
   width: 62%;
   display: flex;
   flex-wrap: wrap;

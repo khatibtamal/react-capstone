@@ -3,9 +3,9 @@ import LittleLemonBio from './MiscComponents/LittleLemonBio';
 
 function PromoReserveTable() {
     return (
-        <div className="reserveTablePromoContainer">
+        <div className="outerBaseFlexRowContainer reserveTablePromoContainer">
             <div className='baseFlexRowContainer'>
-                <LittleLemonBio 
+                <LittleLemonBio
                     buttonLabel="Reserve a table"
                     h1Color="#F4CE14"
                     h2Color="white"

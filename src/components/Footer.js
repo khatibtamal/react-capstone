@@ -2,7 +2,7 @@ import footerLogo from '../images/footer_logo.jpg';
 
 function Footer() {
     return (
-        <footer>
+        <footer className='outerBaseFlexRowContainer'>
             <div className='baseFlexRowContainer'>
                 <img src={footerLogo} alt="Footer Logo" height={300} width={200}/>
                 <div>
@@ -29,6 +29,6 @@ function Footer() {
             </div>
         </footer>
     );
-  }
-  
-  export default Footer;
+}
+
+export default Footer;
