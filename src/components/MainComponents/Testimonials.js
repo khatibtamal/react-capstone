@@ -33,7 +33,7 @@ function Testimonials() {
     ]
 
     return (
-        <div className="outerBaseFlexRowContainer testimonialsBaseContainer">
+        <section className="outerBaseFlexRowContainer testimonialsBaseContainer">
             <div>
                 <h1>Testimonials</h1>
                 <div>
@@ -44,7 +44,7 @@ function Testimonials() {
                     })}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

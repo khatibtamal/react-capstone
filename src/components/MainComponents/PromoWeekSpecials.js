@@ -26,7 +26,7 @@ function PromoWeekSpecials() {
     ]
     
     return (
-        <div className='promoWeeksSpecialsContainer'>
+        <section className='promoWeeksSpecialsContainer'>
             <div className='outerBaseFlexRowContainer'>
                 <div>
                     <h1>This weeks specials!</h1>
@@ -42,7 +42,7 @@ function PromoWeekSpecials() {
                     }
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

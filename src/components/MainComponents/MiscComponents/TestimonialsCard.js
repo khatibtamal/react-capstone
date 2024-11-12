@@ -10,7 +10,7 @@ function ratings(num) {
 
 function TestimonialsCard(props) {
     return (
-        <div class="testimonialsCardContainer">
+        <article class="testimonialsCardContainer">
             <div class="testimonialsCardContentContainer">
                 <h2>{ props.name }</h2>
                 <div className="testimonialRating">
@@ -21,7 +21,7 @@ function TestimonialsCard(props) {
                 </div>
                 <p>{props.body}</p>
             </div>
-        </div>
+        </article>
     );
 }
 

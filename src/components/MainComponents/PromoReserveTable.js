@@ -3,7 +3,7 @@ import LittleLemonBio from './MiscComponents/LittleLemonBio';
 
 function PromoReserveTable() {
     return (
-        <div className="outerBaseFlexRowContainer reserveTablePromoContainer">
+        <section className="outerBaseFlexRowContainer reserveTablePromoContainer">
             <div>
                 <LittleLemonBio
                     buttonLabel="Reserve a table"
@@ -11,9 +11,9 @@ function PromoReserveTable() {
                     h2Color="white"
                     pColor="white"
                     body="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist." />
-                <img src={reserveTablePromoLogo} alt="Promo Reserve Table" height={460} width={370}/>
+                <aside><img src={reserveTablePromoLogo} alt="Promo Reserve Table" height={460} width={370}/></aside>
             </div>
-        </div>
+        </section>
     );
 }
 

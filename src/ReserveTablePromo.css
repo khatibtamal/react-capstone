@@ -2,7 +2,7 @@
     background: linear-gradient(#495E57 85%, transparent 15%);
 }
 
-.reserveTablePromoContainer > div > img {
+.reserveTablePromoContainer > div > aside > img {
     border-radius: 35px;
     margin-left: 6%;
     margin-top: 2%;
@@ -10,7 +10,7 @@
 
 /* Large Mobile And Small Tablets and below */
 @media screen and (max-width: 900px) {
-    .reserveTablePromoContainer > div > img {
+    .reserveTablePromoContainer > div > aside > img {
         height: 430px;
         width: 340px;
         margin-left: 0%;
@@ -27,7 +27,7 @@
         margin-bottom: 5%;
     }
 
-    .reserveTablePromoContainer > div > img {
+    .reserveTablePromoContainer > div > aside {
         display: none;
     }
 }
