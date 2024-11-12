@@ -18,9 +18,24 @@ function Footer() {
                 </div>
                 <div>
                     <h2>Contact</h2>
-                    <a href="#">Address</a>
-                    <a href="#">Phone Number</a>
-                    <a href="#">Email</a>
+                    
+                    <div>
+                        <h3>Address</h3>
+                        <span>4754 North South Street</span>
+                        <span>Chicago, Illinois</span>
+                        <span>USA</span>
+                        <span>101110</span>
+                    </div>
+                    
+                    <div>
+                        <h3>Phone Number</h3>
+                        <span>555-555-5555</span>
+                    </div>
+                    
+                    <div>
+                        <h3>Email</h3>
+                        <span>email@email.com</span>
+                    </div>
                 </div>
                 <div>
                     <h2>Social Media</h2>

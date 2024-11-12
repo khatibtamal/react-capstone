@@ -4,7 +4,6 @@ import navLogo from '../images/header_logo.svg';
 
 function Nav() {
     return (
-        
         <nav className="outerBaseFlexRowContainer">
             <div className="navBarContainer">
                 <img src={navLogo} alt="Header Logo" height={50} width={205}/>

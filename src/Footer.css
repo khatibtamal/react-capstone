@@ -26,6 +26,26 @@ footer > div > div > .nav-item {
     color: white;
 }
 
+footer > div > div:nth-of-type(2) > div  {
+    margin-bottom: 6%;
+}
+
+footer > div > div:nth-of-type(2) > div > h3  {
+    margin: 0;
+    font-family: 'Karla';
+    font-weight: normal;
+    font-size: 22px;
+    color: #F4CE14;
+}
+
+footer > div > div:nth-of-type(2) > div > span  {
+    display: block;
+    font-family: 'Karla';
+    font-weight: normal;
+    font-size: 16px;
+    color: white;
+}
+
 /* Small mobile */
 @media screen and (max-width: 630px) {
     footer > div {
@@ -47,5 +67,17 @@ footer > div > div > .nav-item {
     
     footer > div > div > .nav-item {
         font-size: 15px;
+    }
+
+    footer > div > div:nth-of-type(2) > div  {
+        margin-bottom: 4%;
+    }
+    
+    footer > div > div:nth-of-type(2) > div > h3  {
+        font-size: 15px;
+    }
+    
+    footer > div > div:nth-of-type(2) > div > span  {
+        font-size: 12px;
     }
 }
