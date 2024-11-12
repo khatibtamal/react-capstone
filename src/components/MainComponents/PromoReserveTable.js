@@ -3,7 +3,7 @@ import LittleLemonBio from './MiscComponents/LittleLemonBio';
 
 function PromoReserveTable() {
     return (
-        <section className="outerBaseFlexRowContainer reserveTablePromoContainer">
+        <section className="outerBaseFlexRowContainer reserveTablePromoContainer" id="reserveTableSection">
             <div>
                 <LittleLemonBio
                     buttonLabel="Reserve a table"

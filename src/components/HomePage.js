@@ -3,7 +3,7 @@ import PromoReserveTable from "./MainComponents/PromoReserveTable";
 import PromoWeekSpecials from "./MainComponents/PromoWeekSpecials";
 import Testimonials from "./MainComponents/Testimonials";
 
-function Main() {
+function HomeMain() {
     return (
         <main>
             <PromoReserveTable />
@@ -14,4 +14,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default HomeMain;

@@ -3,7 +3,7 @@ import LittleLemonBio from "./MiscComponents/LittleLemonBio";
 
 function About() {
     return (
-        <section className='outerBaseFlexRowContainer'>
+        <section className='outerBaseFlexRowContainer' id='aboutSection'>
             <div className='aboutContainer'>
                 <LittleLemonBio
                     h1Color="#F4CE14"

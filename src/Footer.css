@@ -18,7 +18,7 @@ footer > div > div > h2 {
     color: #F4CE14;
 }
 
-footer > div > div > a {
+footer > div > div > .nav-item {
     text-decoration: none;
     font-family: 'Karla';
     font-weight: normal;
@@ -45,7 +45,7 @@ footer > div > div > a {
         font-size: 18px;
     }
     
-    footer > div > div > a {
+    footer > div > div > .nav-item {
         font-size: 15px;
     }
 }

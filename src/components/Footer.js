@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import footerLogo from '../images/footer_logo.jpg';
 
 function Footer() {
@@ -7,12 +9,12 @@ function Footer() {
                 <img src={footerLogo} alt="Footer Logo" height={300} width={200}/>
                 <div>
                     <h2>Navigation</h2>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Menu</a>
-                    <a href="#">Reservations</a>
-                    <a href="#">Order Online</a>
-                    <a href="#">Login</a>
+                    <Link to="/" className="nav-item">Home</Link>
+                    <HashLink to="/#aboutSection" className="nav-item">About</HashLink>
+                    <Link to="/" className="nav-item">Menu</Link>
+                    <Link to="/bookings" className="nav-item">Reservations</Link>
+                    <HashLink to="/#orderOnlineSection" className="nav-item">Order Online</HashLink>
+                    <Link to="/" className="nav-item">Login</Link>
                 </div>
                 <div>
                     <h2>Contact</h2>
@@ -22,9 +24,9 @@ function Footer() {
                 </div>
                 <div>
                     <h2>Social Media</h2>
-                    <a href="#">Facebook</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
+                    <Link to="https://www.facebook.com" className="nav-item">Facebook</Link>
+                    <Link to="https://www.twitter.com" className="nav-item">Twitter</Link>
+                    <Link to="https://www.instagram.com" className="nav-item">Instagram</Link>
                 </div>
             </div>
         </footer>
