@@ -1,5 +1,6 @@
 import reserveTablePromoLogo from '../../images/restaurantfood.jpg';
 import LittleLemonBio from './MiscComponents/LittleLemonBio';
+import './ReserveTablePromo.css';
 
 function PromoReserveTable() {
     return (

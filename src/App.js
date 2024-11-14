@@ -1,14 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import './About.css';
 import './App.css';
-import './Footer.css';
-import './LittleLemonBio.css';
-import './Nav.css';
-import './OnlineDeliveryMenuCard.css';
-import './PromoWeeksSpecials.css';
-import './ReserveTablePromo.css';
-import './Testimonials.css';
-import './TestimonialsCard.css';
 import BookingPage from './components/BookingPage';
 import Footer from './components/Footer';
 import Header from './components/Header';

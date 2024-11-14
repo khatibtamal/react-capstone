@@ -1,4 +1,5 @@
 import lemonBrotherImg from '../../images/lemonBrothers.jpg';
+import './About.css';
 import LittleLemonBio from "./MiscComponents/LittleLemonBio";
 
 function About() {

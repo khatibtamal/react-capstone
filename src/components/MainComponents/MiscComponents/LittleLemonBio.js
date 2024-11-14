@@ -1,3 +1,5 @@
+import "./LittleLemonBio.css";
+
 function LittleLemonBio(props) {
     return (
         <div className="littleLemonBio">

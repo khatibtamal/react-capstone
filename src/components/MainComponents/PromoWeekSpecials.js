@@ -2,6 +2,7 @@ import bruchettaImage from '../../images/bruchetta.png';
 import greekSaladImage from '../../images/greek_salad.jpg';
 import lemonDesertImage from '../../images/lemon_dessert.jpg';
 import OnlineDeliveryMenuCard from './MiscComponents/OnlineDeliveryMenuCard';
+import './PromoWeeksSpecials.css';
 
 function PromoWeekSpecials() {
     const specialsData = [

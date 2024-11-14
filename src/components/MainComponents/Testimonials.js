@@ -3,6 +3,7 @@ import kamalaImg from "../../images/testimonial2.png";
 import joeImg from "../../images/testimonial3.png";
 import hillaryImg from "../../images/testimonial4.png";
 import TestimonialsCard from "./MiscComponents/TestimonialsCard";
+import './Testimonials.css';
 
 function Testimonials() {
     const testimonialsData = [

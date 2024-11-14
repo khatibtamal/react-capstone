@@ -1,4 +1,5 @@
 import deliveryLogo from '../../../images/delivery_logo.png';
+import "./OnlineDeliveryMenuCard.css";
 
 function OnlineDeliveryMenuCard(props) {
     return (

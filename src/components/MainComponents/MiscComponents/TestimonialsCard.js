@@ -1,4 +1,5 @@
 import starLogo from '../../../images/rating_star.png';
+import './TestimonialsCard.css';
 
 function ratings(num) {
     const stars = [];

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import footerLogo from '../images/footer_logo.jpg';
+import "./Footer.css";
 
 function Footer() {
     return (
