@@ -1,0 +1,32 @@
+.custom-date-picker-container {
+    width: 20vw;
+    height: 60px;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 15px;
+}
+
+.custom-date-picker-container > img {
+    height: 100%;
+    width: 20%;
+    margin-right: 5%;
+    align-self: right;
+}
+
+.react-datepicker-wrapper {
+    width: 80%;
+}
+
+.date-picker-custom-input {
+    border: none;
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+    font-family: 'Markazi Text';
+    font-weight: 'normal';
+    font-size: 35px;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+}

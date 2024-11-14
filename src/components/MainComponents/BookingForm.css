@@ -1,0 +1,90 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+form > div {
+    justify-content: left;
+    width: 100%;
+}
+
+form > div > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+form > div:nth-of-type(1) {
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    font-size: 40px;
+}
+
+form > div:nth-of-type(1) > h1 {
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    font-size: 64px;
+    margin: 0;
+}
+
+form > div:not(:first-child):not(:last-child) > div:first-child {
+    margin-right: 5%;
+}
+
+.inputArea {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputArea > label {
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 40px;
+    margin-right: 4%;
+}
+
+.firstNameContainer {
+    width: 75%;
+}
+
+.lastNameContainer {
+    width: 58%;
+}
+
+.emailContainer {
+    width: 58%;
+}
+
+.phoneContainer {
+    width: 50%;
+}
+
+.inputArea > input {
+    font-family: 'Markazi Text';
+    font-weight: normal;
+    font-size: 30px;
+    background-color: #D9D9D9;
+    min-width: 0;
+    flex-grow: 1;
+    border: none;
+    height: 60px;
+}
+
+form > div > div > div:nth-of-type(2) {
+    visibility: visible;
+    width: 100%;
+    height: 30px;
+}
+
+form > div:last-child {
+    justify-content: center;
+}
