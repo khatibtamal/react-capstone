@@ -14,7 +14,7 @@ main {
   flex-wrap: wrap;
 }
 
-button {
+.app-button {
   width: 250px;
   height: 60px;
   border-radius: 25px;
@@ -44,7 +44,7 @@ button {
 
 /* Small Mobile */
 @media screen and (max-width: 630px) {
-  button {
+  .app-button {
     width: 135px;
     height: 32px;
     font-size: 21px;

@@ -79,6 +79,20 @@ form > div:not(:first-child):not(:last-child) > div:first-child {
     height: 60px;
 }
 
+.inputArea > button {
+    font-family: 'Markazi Text';
+    font-weight: normal;
+    font-size: 30px;
+    height: 60px;
+}
+
+.dropDownMenuItemContainer > button {
+    font-family: 'Markazi Text';
+    font-weight: normal;
+    font-size: 30px;
+    height: 60px;
+}
+
 form > div > div > div:nth-of-type(2) {
     visibility: visible;
     width: 100%;
@@ -87,4 +101,8 @@ form > div > div > div:nth-of-type(2) {
 
 form > div:last-child {
     justify-content: center;
+}
+
+.guestsContainer > div > input {
+    text-align: center;
 }

@@ -1,16 +1,15 @@
 
-import { Button } from "@chakra-ui/button";
 import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
-import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { useFormik } from "formik";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { CgChevronDown } from "react-icons/cg";
 import * as Yup from 'yup';
 import occassionLogo from '../../images/occassion_logo.png';
 import './BookingForm.css';
 import CustomDatePicker from "./MiscComponents/CustomDatePicker";
+import CustomDropDownMenu from "./MiscComponents/CustomDtopDownMenu";
+import CustomTimePicker from "./MiscComponents/CustomTimePicker";
 
 function BookingForm() {
     const [ width, setWidth ] = useState(window.innerWidth);
@@ -37,6 +36,8 @@ function BookingForm() {
         dropDownItemStyles.borderRadius = "0px";
         dropDownItemStyles.mb = "3px";
     }
+
+    const dropDownMenuItems = ['Birthdays', 'Anniversaries', 'Engagements'];
 
     const formik = useFormik({
             initialValues: {
@@ -89,6 +90,7 @@ function BookingForm() {
                         <Input
                             id="guests"
                             name="guests"
+                            type="number"
                             borderRadius={10}
                             {...formik.getFieldProps('guests')}
                         />
@@ -152,12 +154,7 @@ function BookingForm() {
                 <FormControl className="timeContainer" isInvalid={formik.touched.time && formik.errors.time}>
                     <div className="inputArea">
                         <FormLabel htmlFor="time">Time:</FormLabel>
-                        <Input
-                            id="time"
-                            name="time"
-                            borderRadius={10}
-                            {...formik.getFieldProps('time')}
-                        />
+                        <CustomTimePicker />
                     </div>
                     <div>
                         <FormErrorMessage>
@@ -186,7 +183,12 @@ function BookingForm() {
                 </FormControl>
                 <FormControl className="occassionContainer">
                     <div className="inputArea">
-                        <Menu className="dropDownMenu">
+                        <CustomDropDownMenu
+                            dropDownIcon={ occassionLogo }
+                            menuButtonText='Occassion'
+                            menuItems={ dropDownMenuItems }
+                        />
+                        {/* <Menu className="dropDownMenu">
                             <MenuButton as={Button}
                                 rightIcon={<CgChevronDown />}
                                 leftIcon={<img src={ occassionLogo } style={{marginLeft:"20px"}}/>}
@@ -199,13 +201,13 @@ function BookingForm() {
                                 <MenuItem sx={dropDownItemStyles}>Anniversary</MenuItem>
                                 <MenuItem sx={dropDownItemStyles}>Engagement</MenuItem>
                             </MenuList>
-                        </Menu>
+                        </Menu> */}
                     </div>
                 </FormControl>
             </div>
 
             <div>
-                <button type="submit">Book Now</button>
+                <button className="app-button" type="submit">Book Now</button>
             </div>
         </form>
     );
