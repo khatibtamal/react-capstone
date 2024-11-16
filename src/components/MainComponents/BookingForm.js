@@ -4,6 +4,7 @@ import { Input } from "@chakra-ui/input";
 import { useFormik } from "formik";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 import occassionLogo from '../../images/occassion_logo.png';
 import './BookingForm.css';
@@ -13,6 +14,7 @@ import CustomTimePicker from "./MiscComponents/CustomTimePicker";
 
 function BookingForm() {
     const [ width, setWidth ] = useState(window.innerWidth);
+    const navigate = useNavigate();
 
     let dropDownButtonStyles = {
         backgroundColor: "#EDEFEE",
@@ -62,8 +64,13 @@ function BookingForm() {
         }
     );
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate('/bookings?booking=success');
+    }
+
     return (
-        <form>
+        <form onSubmit={ handleSubmit }>
             <div>
                 <h1>Reserve a table</h1>
             </div>
@@ -188,20 +195,6 @@ function BookingForm() {
                             menuButtonText='Occassion'
                             menuItems={ dropDownMenuItems }
                         />
-                        {/* <Menu className="dropDownMenu">
-                            <MenuButton as={Button}
-                                rightIcon={<CgChevronDown />}
-                                leftIcon={<img src={ occassionLogo } style={{marginLeft:"20px"}}/>}
-                                sx={dropDownButtonStyles}
-                            >
-                                Occassion
-                            </MenuButton>
-                            <MenuList>
-                                <MenuItem sx={dropDownItemStyles}>Birthday</MenuItem>
-                                <MenuItem sx={dropDownItemStyles}>Anniversary</MenuItem>
-                                <MenuItem sx={dropDownItemStyles}>Engagement</MenuItem>
-                            </MenuList>
-                        </Menu> */}
                     </div>
                 </FormControl>
             </div>

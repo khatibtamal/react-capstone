@@ -1,7 +1,12 @@
+import { useSearchParams } from 'react-router-dom';
 import './BookingPage.css';
+import BookingComplete from './MainComponents/BookingComplete';
 import BookingForm from "./MainComponents/BookingForm";
 
 function BookingMain() {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const mainSection = searchParams.get('booking') == 'success' ? <BookingComplete /> : <BookingForm />;
+
     return (
         <main class="bookingMainContainer">
             <section>
@@ -20,7 +25,7 @@ function BookingMain() {
             </section>
             <section>
                 <div>
-                    <BookingForm />
+                    { mainSection }
                 </div>
             </section>
         </main>
