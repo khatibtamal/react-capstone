@@ -4,7 +4,7 @@ import { Input } from "@chakra-ui/input";
 import { useFormik } from "formik";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import * as Yup from 'yup';
 import occassionLogo from '../../images/occassion_logo.png';
 import './BookingForm.css';
@@ -13,64 +13,68 @@ import CustomDropDownMenu from "./MiscComponents/CustomDtopDownMenu";
 import CustomTimePicker from "./MiscComponents/CustomTimePicker";
 
 function BookingForm() {
-    const [ width, setWidth ] = useState(window.innerWidth);
-    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    let dropDownButtonStyles = {
-        backgroundColor: "#EDEFEE",
-        borderRadius: "15px",
-    }
+    const availableTimes = ['11:30', '12:00', '12:30', '13:00', '13:30',
+        '14:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'];
+    // const availableTimesPattern = '/' + availableTimes.join('|') + '/';
+    const availableTimesPattern = '11:30';
+    const phoneNumPattern = /^\d{10}$/;
+    const occasions = ['none', 'Birthdays', 'Anniversaries', 'Engagements'];
 
-    let dropDownItemStyles = {
-        backgroundColor: "#EDEFEE",
-        borderRadius: 0,
-    }
-
-    if (width <= 630) {
-
-    }
-    else if (width <= 1024) {
-
-    }
-    else {
-        dropDownButtonStyles.width = "400px";
-        dropDownItemStyles.width = "400px";
-        dropDownItemStyles.borderRadius = "0px";
-        dropDownItemStyles.mb = "3px";
-    }
+    const [date, setDate] = useState(new Date());
+    const [time, setTime] = useState(availableTimes[0]);
+    const [occassion, setOccassion] = useState(occasions[0]);
+    const [firstName, setFirstName] = useState('');
+    const [guests, setGuests] = useState(1);
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const dropDownMenuItems = ['Birthdays', 'Anniversaries', 'Engagements'];
 
     const formik = useFormik({
             initialValues: {
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: '',
-                date: '',
-                time: '',
-                guests: 0,
-                occassion: "none",
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                date: date.toISOString().split('T')[0],
+                time: time,
+                guests: guests,
+                occassion: occassion,
             },
             validationSchema: Yup.object({
-                firstName: Yup.string().required('Required'),
-                lastName: Yup.string().required('Required'),
+                firstName: Yup.string().required('Required').min(1, 'Must be atleast 1 character').max(20, 'Maximum 20 characters'),
+                lastName: Yup.string().required('Required').min(1, 'Must be atleast 1 character').max(20, 'Maximum 20 characters'),
                 email: Yup.string().email("Invalid email address").required("Required"),
-                phone: Yup.number().required('Required'),
+                phone: Yup.string().matches(phoneNumPattern, "Please enter a valid 10 digit number.").required('Required'),
                 guests: Yup.number().required('Required').min(1, 'Must be at least 1').max(10, 'Must be 10 or less'),
                 date: Yup.date("Invalid Date").required('Required'),
-                time: Yup.string().required('Required'),
-            })
+                time: Yup.string().matches(availableTimesPattern, "Please select a time from menu").required('Required'),
+            }),
+            onSubmit: values => {
+                console.log(values);
+                setSearchParams({ booking: 'success',
+                    firstName: values.firstName,
+                    lastName: values.lastName,
+                    email: values.email,
+                    phone: values.phone,
+                    date: values.date,
+                    time: values.time,
+                    guests: values.guests,
+                    occassion: values.occassion
+                });
+            }
         }
     );
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        navigate('/bookings?booking=success');
+    const dropDownMenuCallback = (value) => {
+        setOccassion(value);
     }
 
     return (
-        <form onSubmit={ handleSubmit }>
+        <form onSubmit={ formik.handleSubmit }>
             <div>
                 <h1>Reserve a table</h1>
             </div>
@@ -82,6 +86,7 @@ function BookingForm() {
                             id="firstName"
                             name="firstName"
                             borderRadius={10}
+                            onChange={(e) => setFirstName(e.target.value)}
                             {...formik.getFieldProps('firstName')}
                         />
                     </div>
@@ -98,6 +103,7 @@ function BookingForm() {
                             id="guests"
                             name="guests"
                             type="number"
+                            onChange={(e) => setGuests(e.target.value)}
                             borderRadius={10}
                             {...formik.getFieldProps('guests')}
                         />
@@ -118,6 +124,7 @@ function BookingForm() {
                             id="lastName"
                             name="lastName"
                             borderRadius={10}
+                            onChange={(e) => setLastName(e.target.value)}
                             {...formik.getFieldProps('lastName')}
                         />
                     </div>
@@ -130,7 +137,7 @@ function BookingForm() {
                 <FormControl className="dateContainer" isInvalid={formik.touched.date && formik.errors.date}>
                     <div className="inputArea">
                         <FormLabel htmlFor="date">Date:</FormLabel>
-                        <CustomDatePicker />
+                        <CustomDatePicker changeCallback={(e) => setDate(e.target.value)} selected={date}/>
                     </div>
                     <div>
                         <FormErrorMessage>
@@ -148,6 +155,7 @@ function BookingForm() {
                             id="email"
                             name="email"
                             type="email"
+                            onChange={(e) => setEmail(e.target.value)}
                             borderRadius={10}
                             {...formik.getFieldProps('email')}
                         />
@@ -161,7 +169,9 @@ function BookingForm() {
                 <FormControl className="timeContainer" isInvalid={formik.touched.time && formik.errors.time}>
                     <div className="inputArea">
                         <FormLabel htmlFor="time">Time:</FormLabel>
-                        <CustomTimePicker />
+                        <CustomTimePicker value={time} changeCallback={(e) => {
+                            setTime(e);
+                        }}/>
                     </div>
                     <div>
                         <FormErrorMessage>
@@ -178,6 +188,8 @@ function BookingForm() {
                         <Input
                             id="phone"
                             name="phone"
+                            type="tel"
+                            onChange={(e) => setPhone(e.target.value)}
                             borderRadius={10}
                             {...formik.getFieldProps('phone')}
                         />
@@ -194,6 +206,7 @@ function BookingForm() {
                             dropDownIcon={ occassionLogo }
                             menuButtonText='Occassion'
                             menuItems={ dropDownMenuItems }
+                            dropDownMenuCallback={ dropDownMenuCallback }
                         />
                     </div>
                 </FormControl>

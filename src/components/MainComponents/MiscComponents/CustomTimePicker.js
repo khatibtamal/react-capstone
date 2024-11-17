@@ -5,7 +5,7 @@ import TimePicker from "react-time-picker";
 import 'react-time-picker/dist/TimePicker.css';
 import "./CustomTimePicker.css";
 
-function CustomTimePicker() {
+function CustomTimePicker(props) {
     const [time, setTime] = useState('10:00');
 
     const timeOnChage = (e) => {
@@ -15,8 +15,8 @@ function CustomTimePicker() {
     return (
         <TimePicker
             className="time-picker-input"
-            onChange={timeOnChage}
-            value={time}
+            onChange={props.changeCallback}
+            value={props.value}
         />
     );
 }
