@@ -1,0 +1,28 @@
+.booking-complete-section {
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-complete-section > h1 {
+    font-family: 'Markazi Text';
+    font-weight: bold;
+    font-size: 64px;
+    margin: 0;
+}
+
+.booking-complete-section > p {
+    font-family: 'Markazi Text';
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 1%;
+}
+
+.booking-complete-section > p > span {
+    color: #A4191E;
+}
+
+.booking-complete-section > button {
+    align-self: center;
+    margin-top: 3%;
+}
