@@ -121,3 +121,21 @@ form > div:last-child {
     color: red;
     margin-top: 2%;
 }
+
+.date-picker-custom-input {
+    border: none;
+    width: 90%;
+    height: 55px;
+    text-align: center;
+    font-family: 'Markazi Text';
+    font-weight: 'normal';
+    font-size: 35px;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+}
+
+.date-picker-calendar-icon {
+    height: 50%;
+    width: 15%;
+    margin-top: 3%;
+}

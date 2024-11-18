@@ -1,4 +1,5 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { convertTo12Hour } from "../../utils/utility";
 import "./BookingComplete.css";
 
 function BookingComplete() {
@@ -14,7 +15,13 @@ function BookingComplete() {
             <h1>Reservation Complete!</h1>
 
             <p><span>{searchParams.get('firstName')} {searchParams.get('lastName')}</span>,
-                your reservation is complete for <span >{new Date(searchParams.get('date')).toISOString().split('T')[0]}</span> at <span>{searchParams.get('time')}</span> for <span>{searchParams.get('guests')}</span> guests!</p>
+                your reservation is complete for <span >{new Date(searchParams.get('date')).toISOString().split('T')[0]}</span> at <span>{convertTo12Hour(searchParams.get('time'))}</span> for <span>{searchParams.get('guests')}</span> guests!</p>
+
+            {(searchParams.get('occassion') === 'Engagements' || searchParams.get('occassion') === 'Birthdays') &&
+                <p>For the special {searchParams.get('occassion').substring(0, searchParams.get('occassion').length - 1).toLocaleLowerCase()} occasion, Little Lemon restaurant will provide a complimentary cake!</p>}
+
+            {searchParams.get('occassion') === 'Anniversaries' &&
+                <p>For the special anniversary occasion, Little Lemon restaurant will provide a complimentary champagne!</p>}
 
             <p>You will soon receive an email at <span>{searchParams.get('email')}</span> with reservation details.
                 You will also get a reminder phone call at <span>{searchParams.get('phone')}</span> on the day of the reservation.</p>

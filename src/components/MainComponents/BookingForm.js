@@ -3,20 +3,21 @@ import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/form-contro
 import { Input } from "@chakra-ui/input";
 import { useFormik } from "formik";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSearchParams } from "react-router-dom";
 import * as Yup from 'yup';
 import clockIcon from '../../images/clock.png';
 import occassionLogo from '../../images/occassion_logo.png';
 import validInputIcon from '../../images/valid_input.png';
+import { getTomorrowDate } from "../../utils/utility";
 import './BookingForm.css';
-import CustomDatePicker from "./MiscComponents/CustomDatePicker";
 import OccassionDropDownMenu from "./MiscComponents/OccassionDropDownMenu";
 import TimeDropDownMenu from "./MiscComponents/TimeDropDownMenu";
 
 function BookingForm() {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(getTomorrowDate());
 
     const availableTimes = ['11:30', '12:00', '12:30', '13:00', '13:30',
         '14:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'];
@@ -42,7 +43,7 @@ function BookingForm() {
                 email: Yup.string().email("Invalid email address").required("Required"),
                 phone: Yup.string().matches(phoneNumPattern, "Please enter a valid 10 digit number.").required('Required'),
                 guests: Yup.number().required('Required').min(1, 'Must be at least 1').max(10, 'Must be 10 or less'),
-                date: Yup.date("Invalid Date").required('Required'),
+                date: Yup.date("Invalid Date").min(new Date(), "Please book min 1 day ahead.").required('Required'),
                 time: Yup.string().matches(availableTimesPattern, "Please select a time from menu").required('Required'),
             }),
             onSubmit: values => {
@@ -124,11 +125,19 @@ function BookingForm() {
                 <FormControl className="dateContainer" isInvalid={formik.touched.date && formik.errors.date}>
                     <div className="inputArea">
                         <FormLabel htmlFor="date">Date:</FormLabel>
-                        <CustomDatePicker changeCallback={(e) => {
-                            formik.setFieldValue('date', e);
-                            formik.touched.date = true;
-                            setDate(e);
-                        }} selected={date}/>
+                        <DatePicker
+                            showIcon={true}
+                            calendarIconClassName="date-picker-calendar-icon"
+                            wrapperClassName="react-datepicker-wrapper"
+                            selected={date}
+                            minDate={getTomorrowDate()}
+                            onChange={(e) => {
+                                formik.setFieldValue('date', e);
+                                formik.touched.date = true;
+                                setDate(e);
+                            }}
+                            customInput={<Input className="date-picker-custom-input"  />}
+                        />
                     </div>
                     <div>{errorComponent(formik.touched.date, formik.errors.date)}</div>
                 </FormControl>

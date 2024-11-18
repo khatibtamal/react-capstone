@@ -3,7 +3,7 @@ import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { useRef } from "react";
 import { createRoot } from 'react-dom/client';
 import { CgChevronDown, CgChevronUp } from "react-icons/cg";
-import convertTo12Hour from "../../../utils/utility.js";
+import { convertTo12Hour } from "../../../utils/utility.js";
 
 function TimeDropDownMenu(props) {
     const mainButtonRef = useRef();
