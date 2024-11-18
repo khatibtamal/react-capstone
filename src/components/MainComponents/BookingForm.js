@@ -39,7 +39,7 @@ function BookingForm() {
                 lastName: lastName,
                 email: email,
                 phone: phone,
-                date: date.toISOString().split('T')[0],
+                date: date,
                 time: time,
                 guests: guests,
                 occassion: occassion,
@@ -138,7 +138,11 @@ function BookingForm() {
                 <FormControl className="dateContainer" isInvalid={formik.touched.date && formik.errors.date}>
                     <div className="inputArea">
                         <FormLabel htmlFor="date">Date:</FormLabel>
-                        <CustomDatePicker changeCallback={(e) => setDate(e.target.value)} selected={date}/>
+                        <CustomDatePicker changeCallback={(e) => {
+                            formik.setFieldValue('date', e);
+                            setDate(e);
+
+                        }} selected={date}/>
                     </div>
                     <div>
                         <FormErrorMessage>
