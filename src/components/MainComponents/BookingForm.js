@@ -8,6 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import * as Yup from 'yup';
 import clockIcon from '../../images/clock.png';
 import occassionLogo from '../../images/occassion_logo.png';
+import validInputIcon from '../../images/valid_input.png';
 import './BookingForm.css';
 import CustomDatePicker from "./MiscComponents/CustomDatePicker";
 import OccassionDropDownMenu from "./MiscComponents/OccassionDropDownMenu";
@@ -60,6 +61,20 @@ function BookingForm() {
         }
     );
 
+    const errorComponent = (touched, errors) => {
+        if (touched) {
+            if (errors) {
+                return <FormErrorMessage className="validation-message">{errors}</FormErrorMessage>
+            }
+            else {
+                return <img src={validInputIcon} width={40} height={35}/>
+            }
+        }
+        else {
+            return <></>
+        }
+    }
+
     return (
         <form onSubmit={ formik.handleSubmit }>
             <div>
@@ -76,11 +91,7 @@ function BookingForm() {
                             {...formik.getFieldProps('firstName')}
                         />
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.firstName}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.firstName, formik.errors.firstName)}</div>
                 </FormControl>
                 <FormControl className="guestsContainer" isInvalid={formik.touched.guests && formik.errors.guests}>
                     <div className="inputArea">
@@ -93,11 +104,7 @@ function BookingForm() {
                             {...formik.getFieldProps('guests')}
                         />
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.guests}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.guests, formik.errors.guests)}</div>
                 </FormControl>
             </div>
 
@@ -112,25 +119,18 @@ function BookingForm() {
                             {...formik.getFieldProps('lastName')}
                         />
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.lastName}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.lastName, formik.errors.lastName)}</div>
                 </FormControl>
                 <FormControl className="dateContainer" isInvalid={formik.touched.date && formik.errors.date}>
                     <div className="inputArea">
                         <FormLabel htmlFor="date">Date:</FormLabel>
                         <CustomDatePicker changeCallback={(e) => {
                             formik.setFieldValue('date', e);
+                            formik.touched.date = true;
                             setDate(e);
                         }} selected={date}/>
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.date}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.date, formik.errors.date)}</div>
                 </FormControl>
             </div>
             
@@ -146,11 +146,7 @@ function BookingForm() {
                             {...formik.getFieldProps('email')}
                         />
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.email}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.email, formik.errors.email)}</div>
                 </FormControl>
                 <FormControl className="timeContainer" isInvalid={formik.touched.time && formik.errors.time}>
                     <div className="inputArea">
@@ -159,15 +155,12 @@ function BookingForm() {
                             menuButtonText='Time'
                             menuItems={ availableTimes }
                             dropDownMenuCallback={ (e) => {
+                                formik.touched.time = true;
                                 formik.setFieldValue('time', e);
                             } }
                         />
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.time}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.time, formik.errors.time)}</div>
                 </FormControl>
             </div>
             
@@ -183,11 +176,7 @@ function BookingForm() {
                             {...formik.getFieldProps('phone')}
                         />
                     </div>
-                    <div>
-                        <FormErrorMessage>
-                            {formik.errors.phone}
-                        </FormErrorMessage>
-                    </div>
+                    <div>{errorComponent(formik.touched.phone, formik.errors.phone)}</div>
                 </FormControl>
                 <FormControl className="occassionContainer">
                     <div className="inputArea">

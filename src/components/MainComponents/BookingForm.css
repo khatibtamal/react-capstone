@@ -16,6 +16,12 @@ form > div {
     width: 100%;
 }
 
+form > div:not(:first-child):not(:last-child) > div:nth-child(even) > div:last-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
 form > div > div {
     display: flex;
     flex-direction: column;
@@ -106,4 +112,12 @@ form > div:last-child {
 
 .guestsContainer > div > input {
     text-align: center;
+}
+
+.validation-message {
+    font-family: 'Markazi Text';
+    font-weight: normal;
+    font-size: 28px;
+    color: red;
+    margin-top: 2%;
 }
