@@ -2,6 +2,11 @@
     background: linear-gradient(#495E57 85%, transparent 15%);
 }
 
+.reserveTablePromoContainer > div {
+    display: flex;
+    justify-content: space-around;
+}
+
 .reserveTablePromoContainer > div > aside > img {
     border-radius: 35px;
     margin-left: 6%;
@@ -9,16 +14,15 @@
 }
 
 /* Large Mobile And Small Tablets and below */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
     .reserveTablePromoContainer > div > aside > img {
         height: 430px;
         width: 340px;
-        margin-left: 0%;
     }
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     .reserveTablePromoContainer {
         background: #495E57;
     }

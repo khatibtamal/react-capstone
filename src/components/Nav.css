@@ -19,7 +19,7 @@
 }
 
 /* Large Mobile And Small Tablets and below */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
     .navBarContainer > a {
         font-size: 22px;
         margin-top: 5%;
@@ -27,7 +27,7 @@
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     .navBarContainer {
         margin-left: 2%;
         margin-right: 5%;

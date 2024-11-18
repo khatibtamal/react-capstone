@@ -8,19 +8,17 @@
     margin-top: 2%;
 }
 
-/* Large Mobile And Small Tablets and below */
-@media screen and (max-width: 900px) {
-    .aboutContainer > aside > img {
-        margin-top: 12%;
-        margin-left: 3%;
-        margin-bottom: 3%;
-        height: 260px;
-        width: 350px;
+/* Large Mobile And Tablets and below */
+@media screen and (max-width: 1024px) {
+    .aboutContainer > img {
+        margin-top: 9%;
+        height: 270px;
+        width: 390px;
     }
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     .aboutContainer > div {
         width: 100%;
     }

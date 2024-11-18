@@ -53,7 +53,7 @@
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     .onlineDeliveryMenuCardContainer {
         width: 150px;
         height: 320px;

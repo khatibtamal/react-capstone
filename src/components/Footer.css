@@ -47,7 +47,7 @@ footer > div > div:nth-of-type(2) > div > span  {
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     footer > div {
         justify-content: space-around;
     }

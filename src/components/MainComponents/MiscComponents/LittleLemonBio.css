@@ -26,7 +26,7 @@
 }
 
 /* Large Mobile And Small Tablets and below */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
     .littleLemonBio > h1 {
         font-size: 55px;
     }
@@ -41,7 +41,7 @@
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     .littleLemonBio {
         width: 100%;
     }

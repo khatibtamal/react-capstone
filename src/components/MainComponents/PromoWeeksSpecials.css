@@ -14,14 +14,14 @@
 }
 
 /* Large Mobile And Small Tablets and below */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
     .promoWeeksSpecialsContainer > div > div {
         justify-content: space-around;
     }
 }
 
 /* Small mobile */
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
     .promoWeeksSpecialsContainer > div:first-child > div > h1 {
         font-size: 28px;
     }

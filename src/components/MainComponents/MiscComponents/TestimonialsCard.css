@@ -37,21 +37,30 @@
     margin-right: 15%;
 }
 
-/* Small mobile */
-@media screen and (max-width: 630px) {
+/* Tablets and big mobile */
+@media screen and (max-width: 1024px) {
     .testimonialsCardContainer {
         height: 230px;
-        width: 160px;
+        width: 190px;
     }
 
     .testimonialsCardContentContainer > p {
-        font-family: 'Karla';
-        font-weight: normal;
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .testimonialRatingStars > * {
         height: 12px;
         width: 12px;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 800px) {
+    .testimonialsCardContainer {
+        width: 160px;
+    }
+
+    .testimonialsCardContentContainer > p {
+        font-size: 15px;
     }
 }
