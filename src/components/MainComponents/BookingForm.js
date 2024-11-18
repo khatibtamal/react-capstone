@@ -6,24 +6,24 @@ import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSearchParams } from "react-router-dom";
 import * as Yup from 'yup';
+import clockIcon from '../../images/clock.png';
 import occassionLogo from '../../images/occassion_logo.png';
 import './BookingForm.css';
 import CustomDatePicker from "./MiscComponents/CustomDatePicker";
-import CustomDropDownMenu from "./MiscComponents/CustomDtopDownMenu";
-import CustomTimePicker from "./MiscComponents/CustomTimePicker";
+import OccassionDropDownMenu from "./MiscComponents/OccassionDropDownMenu";
+import TimeDropDownMenu from "./MiscComponents/TimeDropDownMenu";
 
 function BookingForm() {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const availableTimes = ['11:30', '12:00', '12:30', '13:00', '13:30',
         '14:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'];
-    // const availableTimesPattern = '/' + availableTimes.join('|') + '/';
-    const availableTimesPattern = '11:30';
+    const availableTimesPattern = new RegExp(availableTimes.join('|'));
     const phoneNumPattern = /^\d{10}$/;
     const occasions = ['none', 'Birthdays', 'Anniversaries', 'Engagements'];
 
     const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState(availableTimes[0]);
+    const [time, setTime] = useState('none');
     const [occassion, setOccassion] = useState(occasions[0]);
     const [firstName, setFirstName] = useState('');
     const [guests, setGuests] = useState(1);
@@ -45,8 +45,8 @@ function BookingForm() {
                 occassion: occassion,
             },
             validationSchema: Yup.object({
-                firstName: Yup.string().required('Required').min(1, 'Must be atleast 1 character').max(20, 'Maximum 20 characters'),
-                lastName: Yup.string().required('Required').min(1, 'Must be atleast 1 character').max(20, 'Maximum 20 characters'),
+                firstName: Yup.string().required('Required').min(1, 'Must be at least 1 character').max(20, 'Maximum 20 characters'),
+                lastName: Yup.string().required('Required').min(1, 'Must be at least 1 character').max(20, 'Maximum 20 characters'),
                 email: Yup.string().email("Invalid email address").required("Required"),
                 phone: Yup.string().matches(phoneNumPattern, "Please enter a valid 10 digit number.").required('Required'),
                 guests: Yup.number().required('Required').min(1, 'Must be at least 1').max(10, 'Must be 10 or less'),
@@ -70,6 +70,7 @@ function BookingForm() {
     );
 
     const dropDownMenuCallback = (value) => {
+        formik.setFieldValue('occassion', value);
         setOccassion(value);
     }
 
@@ -169,9 +170,14 @@ function BookingForm() {
                 <FormControl className="timeContainer" isInvalid={formik.touched.time && formik.errors.time}>
                     <div className="inputArea">
                         <FormLabel htmlFor="time">Time:</FormLabel>
-                        <CustomTimePicker value={time} changeCallback={(e) => {
-                            setTime(e);
-                        }}/>
+                        <TimeDropDownMenu dropDownIcon={ clockIcon }
+                            menuButtonText='Time'
+                            menuItems={ availableTimes }
+                            dropDownMenuCallback={ (e) => {
+                                formik.setFieldValue('time', e);
+                                setTime(e);
+                            } }
+                        />
                     </div>
                     <div>
                         <FormErrorMessage>
@@ -202,7 +208,7 @@ function BookingForm() {
                 </FormControl>
                 <FormControl className="occassionContainer">
                     <div className="inputArea">
-                        <CustomDropDownMenu
+                        <OccassionDropDownMenu
                             dropDownIcon={ occassionLogo }
                             menuButtonText='Occassion'
                             menuItems={ dropDownMenuItems }
