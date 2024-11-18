@@ -7,7 +7,7 @@
     justify-content: space-around;
 }
 
-.reserveTablePromoContainer > div > aside > img {
+.reserveTablePromoContainer > div > img {
     border-radius: 35px;
     margin-left: 6%;
     margin-top: 2%;
@@ -15,7 +15,7 @@
 
 /* Large Mobile And Small Tablets and below */
 @media screen and (max-width: 1024px) {
-    .reserveTablePromoContainer > div > aside > img {
+    .reserveTablePromoContainer > div > img {
         height: 430px;
         width: 340px;
     }
@@ -31,7 +31,7 @@
         margin-bottom: 5%;
     }
 
-    .reserveTablePromoContainer > div > aside {
+    .reserveTablePromoContainer > div > img {
         display: none;
     }
 }

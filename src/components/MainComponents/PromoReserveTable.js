@@ -12,7 +12,7 @@ function PromoReserveTable() {
                     h2Color="white"
                     pColor="white"
                     body="We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist." />
-                <aside><img src={reserveTablePromoLogo} alt="Promo Reserve Table" height={460} width={370}/></aside>
+                <img src={reserveTablePromoLogo} alt="Promo Reserve Table" height={460} width={370}/>
             </div>
         </section>
     );
