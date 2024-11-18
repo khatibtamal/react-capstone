@@ -15,34 +15,25 @@ import TimeDropDownMenu from "./MiscComponents/TimeDropDownMenu";
 
 function BookingForm() {
     const [searchParams, setSearchParams] = useSearchParams();
+    const [date, setDate] = useState(new Date());
 
     const availableTimes = ['11:30', '12:00', '12:30', '13:00', '13:30',
         '14:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'];
     const availableTimesPattern = new RegExp(availableTimes.join('|'));
     const phoneNumPattern = /^\d{10}$/;
     const occasions = ['none', 'Birthdays', 'Anniversaries', 'Engagements'];
-
-    const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState('none');
-    const [occassion, setOccassion] = useState(occasions[0]);
-    const [firstName, setFirstName] = useState('');
-    const [guests, setGuests] = useState(1);
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-
     const dropDownMenuItems = ['Birthdays', 'Anniversaries', 'Engagements'];
 
     const formik = useFormik({
             initialValues: {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                phone: phone,
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
                 date: date,
-                time: time,
-                guests: guests,
-                occassion: occassion,
+                time: 'none',
+                guests: 1,
+                occassion: occasions[0],
             },
             validationSchema: Yup.object({
                 firstName: Yup.string().required('Required').min(1, 'Must be at least 1 character').max(20, 'Maximum 20 characters'),
@@ -69,11 +60,6 @@ function BookingForm() {
         }
     );
 
-    const dropDownMenuCallback = (value) => {
-        formik.setFieldValue('occassion', value);
-        setOccassion(value);
-    }
-
     return (
         <form onSubmit={ formik.handleSubmit }>
             <div>
@@ -86,8 +72,7 @@ function BookingForm() {
                         <Input
                             id="firstName"
                             name="firstName"
-                            borderRadius={10}
-                            onChange={(e) => setFirstName(e.target.value)}
+                            onChange={formik.handleChange}
                             {...formik.getFieldProps('firstName')}
                         />
                     </div>
@@ -104,8 +89,7 @@ function BookingForm() {
                             id="guests"
                             name="guests"
                             type="number"
-                            onChange={(e) => setGuests(e.target.value)}
-                            borderRadius={10}
+                            onChange={formik.handleChange}
                             {...formik.getFieldProps('guests')}
                         />
                     </div>
@@ -124,8 +108,7 @@ function BookingForm() {
                         <Input
                             id="lastName"
                             name="lastName"
-                            borderRadius={10}
-                            onChange={(e) => setLastName(e.target.value)}
+                            onChange={formik.handleChange}
                             {...formik.getFieldProps('lastName')}
                         />
                     </div>
@@ -141,7 +124,6 @@ function BookingForm() {
                         <CustomDatePicker changeCallback={(e) => {
                             formik.setFieldValue('date', e);
                             setDate(e);
-
                         }} selected={date}/>
                     </div>
                     <div>
@@ -160,8 +142,7 @@ function BookingForm() {
                             id="email"
                             name="email"
                             type="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            borderRadius={10}
+                            onChange={formik.handleChange}
                             {...formik.getFieldProps('email')}
                         />
                     </div>
@@ -179,7 +160,6 @@ function BookingForm() {
                             menuItems={ availableTimes }
                             dropDownMenuCallback={ (e) => {
                                 formik.setFieldValue('time', e);
-                                setTime(e);
                             } }
                         />
                     </div>
@@ -199,8 +179,7 @@ function BookingForm() {
                             id="phone"
                             name="phone"
                             type="tel"
-                            onChange={(e) => setPhone(e.target.value)}
-                            borderRadius={10}
+                            onChange={formik.handleChange}
                             {...formik.getFieldProps('phone')}
                         />
                     </div>
@@ -216,7 +195,9 @@ function BookingForm() {
                             dropDownIcon={ occassionLogo }
                             menuButtonText='Occassion'
                             menuItems={ dropDownMenuItems }
-                            dropDownMenuCallback={ dropDownMenuCallback }
+                            dropDownMenuCallback={ (e) => {
+                                formik.setFieldValue('occassion', e);
+                            }}
                         />
                     </div>
                 </FormControl>
