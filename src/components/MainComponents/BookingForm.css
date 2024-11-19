@@ -49,7 +49,7 @@ form > div:not(:first-child):not(:last-child) > div:first-child {
 }
 
 .firstNameContainer {
-    width: 75%;
+    width: 63%;
 }
 
 .lastNameContainer {
@@ -61,7 +61,7 @@ form > div:not(:first-child):not(:last-child) > div:first-child {
 }
 
 .phoneContainer {
-    width: 50%;
+    width: 58%;
 }
 
 .inputArea > input {
@@ -140,6 +140,14 @@ form > div:last-child {
 
     .inputArea > label {
         font-size: 32px;
+    }
+
+    .firstNameContainer {
+        width: 58%;
+    }
+    
+    .lastNameContainer {
+        width: 57%;
     }
 }
 

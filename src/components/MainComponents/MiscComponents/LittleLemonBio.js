@@ -6,7 +6,7 @@ function LittleLemonBio(props) {
             <h1 style={{ color: props.h1Color }}>Little Lemon</h1>
             <h2 style={{ color: props.h2Color }}>Chicago</h2>
             <p style={{ color: props.pColor }}>{ props.body }</p>
-            { props.buttonLabel && <button className="app-button">{ props.buttonLabel }</button> }
+            { props.buttonLabel && <button className="app-button" onClick={props.buttonCallback}>{ props.buttonLabel }</button> }
         </div>
     );
 }

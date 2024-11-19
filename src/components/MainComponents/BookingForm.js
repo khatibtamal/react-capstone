@@ -159,7 +159,6 @@ function BookingForm() {
                 </FormControl>
                 <FormControl className="timeContainer" isInvalid={formik.touched.time && formik.errors.time}>
                     <div className="inputArea">
-                        <FormLabel htmlFor="time">Time:</FormLabel>
                         <TimeDropDownMenu dropDownIcon={ clockIcon }
                             menuButtonText='Time'
                             menuItems={ availableTimes }

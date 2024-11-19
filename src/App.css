@@ -25,6 +25,10 @@ main {
   font-size: 36px;
 }
 
+.app-button:hover {
+  cursor: pointer;
+}
+
 /* Large Tablets and below */
 @media screen and (max-width: 1024px) {
   html, body {

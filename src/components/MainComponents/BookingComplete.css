@@ -27,3 +27,29 @@
     align-self: center;
     margin-top: 3%;
 }
+
+/* Large Mobile And Tablets and below */
+@media screen and (max-width: 1024px) {
+    .booking-complete-section {
+        width: 100%;
+    }
+    
+    .booking-complete-section > h1 {
+        font-size: 50px;
+    }
+
+    .booking-complete-section > p {
+        font-size: 32px;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 800px) {
+    .booking-complete-section > h1 {
+        font-size: 31px;
+    }
+
+    .booking-complete-section > p {
+        font-size: 21px;
+    }
+}
