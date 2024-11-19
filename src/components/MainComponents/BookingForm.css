@@ -7,13 +7,9 @@ form {
 form > div {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     margin-bottom: 2%;
-}
-
-form > div {
-    justify-content: left;
-    width: 100%;
+    justify-content: space-between;
+    width: 900px;
 }
 
 form > div:not(:first-child):not(:last-child) > div:nth-child(even) > div:last-child {
@@ -26,12 +22,6 @@ form > div > div {
     display: flex;
     flex-direction: column;
     min-width: 0;
-}
-
-form > div:nth-of-type(1) {
-    font-family: 'Markazi Text';
-    font-weight: bold;
-    font-size: 40px;
 }
 
 form > div:nth-of-type(1) > h1 {
@@ -86,6 +76,7 @@ form > div:not(:first-child):not(:last-child) > div:first-child {
     border-radius: 10px;
 }
 
+/* this is for dropdown menu */
 .inputArea > button {
     font-family: 'Markazi Text';
     font-weight: normal;
@@ -93,13 +84,7 @@ form > div:not(:first-child):not(:last-child) > div:first-child {
     height: 60px;
 }
 
-.dropDownMenuItemContainer > button {
-    font-family: 'Markazi Text';
-    font-weight: normal;
-    font-size: 30px;
-    height: 60px;
-}
-
+/* error message are */
 form > div > div > div:nth-of-type(2) {
     visibility: visible;
     width: 100%;
@@ -119,7 +104,6 @@ form > div:last-child {
     font-weight: normal;
     font-size: 28px;
     color: red;
-    margin-top: 2%;
 }
 
 .date-picker-custom-input {
@@ -130,7 +114,7 @@ form > div:last-child {
     font-family: 'Markazi Text';
     font-weight: 'normal';
     font-size: 35px;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #D9D9D9;
 }
 
@@ -138,4 +122,107 @@ form > div:last-child {
     height: 50%;
     width: 15%;
     margin-top: 3%;
+}
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 1024px) {
+    form {
+        width: 100%;
+    }
+
+    form > div {
+        width: 100%;
+    }
+
+    form > div:nth-of-type(1) > h1 {
+        font-size: 50px;
+    }
+
+    .inputArea > label {
+        font-size: 32px;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 800px) {
+    form > div {
+        flex-direction: column;
+    }
+
+    form > div > * {
+        align-self: center;
+    }
+
+    .inputArea {
+        flex-direction: column;
+    }
+
+    .inputArea > label {
+        align-self: center;
+    }
+
+    .lastNameContainer {
+        width: 75%;
+    }
+    
+    .emailContainer {
+        width: 75%;
+    }
+    
+    .phoneContainer {
+        width: 75%;
+    }
+
+    form > div:not(:first-child):not(:last-child) > div > div:last-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 1%;
+    }
+
+    form > div:not(:first-child):not(:last-child) > div:nth-child(even) > div:last-child {
+        justify-content: center;
+    }
+
+    form > div:last-child {
+        margin-top: 2%;
+        margin-bottom: 6%;
+    }
+
+    form > div:nth-of-type(1) > h1 {
+        font-size: 32px;
+    }
+
+    .inputArea > label {
+        font-size: 21px;
+    }
+
+    .inputArea > input {
+        font-size: 21px;
+        height: 32px;
+    }
+
+    .date-picker-custom-input {
+        height: 32px;
+        font-size: 23px;
+    }
+
+    /* this is for dropdown menu */
+    .inputArea > button {
+        height: 32px;
+        font-size: 21px;
+    }
+
+    .validation-message {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 21px;
+    }
+
+    .date-picker-calendar-icon {
+        height: 45%;
+        width: 12%;
+        margin-top: 2%;
+    }
 }

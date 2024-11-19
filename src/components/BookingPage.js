@@ -8,8 +8,8 @@ function BookingMain() {
     const mainSection = searchParams.get('booking') == 'success' ? <BookingComplete /> : <BookingForm />;
 
     return (
-        <main class="bookingMainContainer">
-            <section>
+        <main className="bookingMainContainer">
+            <section className='outerBaseFlexRowContainer'>
                 <div>
                     <h1>Dine out with us in the heart of Chicago!</h1>
                     <div>
@@ -23,7 +23,7 @@ function BookingMain() {
                     </div>
                 </div>
             </section>
-            <section>
+            <section className='outerBaseFlexRowContainer'>
                 <div>
                     { mainSection }
                 </div>

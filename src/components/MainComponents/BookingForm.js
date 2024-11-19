@@ -41,10 +41,10 @@ function BookingForm() {
                 firstName: Yup.string().required('Required').min(1, 'Must be at least 1 character').max(20, 'Maximum 20 characters'),
                 lastName: Yup.string().required('Required').min(1, 'Must be at least 1 character').max(20, 'Maximum 20 characters'),
                 email: Yup.string().email("Invalid email address").required("Required"),
-                phone: Yup.string().matches(phoneNumPattern, "Please enter a valid 10 digit number.").required('Required'),
+                phone: Yup.string().matches(phoneNumPattern, "Can only be 10 digits.").required('Required'),
                 guests: Yup.number().required('Required').min(1, 'Must be at least 1').max(10, 'Must be 10 or less'),
                 date: Yup.date("Invalid Date").min(new Date(), "Please book min 1 day ahead.").required('Required'),
-                time: Yup.string().matches(availableTimesPattern, "Please select a time from menu").required('Required'),
+                time: Yup.string().matches(availableTimesPattern, "Select from available time.").required('Required'),
             }),
             onSubmit: values => {
                 console.log(values);
@@ -68,7 +68,7 @@ function BookingForm() {
                 return <FormErrorMessage className="validation-message">{errors}</FormErrorMessage>
             }
             else {
-                return <img src={validInputIcon} width={40} height={35}/>
+                return <img src={validInputIcon} width={35} height={30}/>
             }
         }
         else {

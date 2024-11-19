@@ -1,18 +1,3 @@
-.bookingMainContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bookingMainContainer > section {
-    width: 100vw;
-}
-
-.bookingMainContainer > section > div {
-    width: 62vw;
-    margin: auto;
-}
-
 .bookingMainContainer > section:nth-of-type(1) {
     background-color: #495E57;
 }
@@ -31,7 +16,7 @@
     font-weight: bold;
     font-size: 60px;
     color: #F4CE14;
-    text-align: left;
+    text-align: center;
     margin-bottom: 1%;
     margin-top: 1%;
 }
@@ -39,7 +24,7 @@
 .bookingMainContainer > section:nth-of-type(1) > div > div {
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    justify-content: space-around;
 }
 
 .bookingMainContainer > section:nth-of-type(1) > div > div > div {
@@ -57,4 +42,37 @@
 .bookingMainContainer > section:nth-of-type(1) > div > div > iframe {
     width: 50%;
     height: 190px;
+}
+
+/* Large Mobile And Small Tablets and below */
+@media screen and (max-width: 1024px) {
+    .bookingMainContainer > section:nth-of-type(1) > div > h1 {
+        font-size: 50px;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 800px) {
+    .bookingMainContainer > section:nth-of-type(1) > div > h1 {
+        font-size: 35px;
+    }
+
+    .bookingMainContainer > section:nth-of-type(1) > div > div > div > span {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .bookingMainContainer > section:nth-of-type(1) > div > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bookingMainContainer > section:nth-of-type(1) > div > div > * {
+        align-self: center;
+    }
+
+    .bookingMainContainer > section:nth-of-type(1) > div > div > iframe {
+        height: 130px;
+        width: 310px;
+    }
 }

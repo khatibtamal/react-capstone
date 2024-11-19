@@ -1,16 +1,30 @@
 import { Button } from "@chakra-ui/button";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from 'react-dom/client';
 import { CgChevronDown, CgChevronUp } from "react-icons/cg";
 import { convertTo12Hour } from "../../../utils/utility.js";
 
 function TimeDropDownMenu(props) {
     const mainButtonRef = useRef();
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        //useEffect returns a cleanup function
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+    }, [])
 
     let dropDownButtonStyles = {
         backgroundColor: "#EDEFEE",
-        borderRadius: "15px",
+        borderRadius: "10px",
         border: 'none',
     }
 
@@ -18,25 +32,43 @@ function TimeDropDownMenu(props) {
         backgroundColor: "#EDEFEE",
         borderRadius: 0,
         border: 'none',
+        fontFamily: 'Markazi Text',
+        fontWeight: "normal",
+        fontSize: "30px",
+        height: "60px",
+    }
+
+    let leftIconProps = {
+        marginLeft: "20px",
     }
 
     let menuItemsContainerHeight = 200;
     let menuItemsContainerWidth = 300;
 
-    if (window.innerWidth <= 630) {
+    if (screenWidth <= 800) {
+        dropDownButtonStyles.width = "300px";
+        dropDownButtonStyles.alignSelf = "center";
 
-    }
-    else if (window.innerWidth <= 1024) {
+        dropDownItemStyles.width = "300px";
+        dropDownItemStyles.alignSelf = "center";
+        dropDownItemStyles.fontSize = "21px";
+        dropDownItemStyles.height= "32px";
+        dropDownItemStyles.mb = "2%";
 
+        leftIconProps.width = "28px";
+        leftIconProps.height = "28px";
     }
     else {
         dropDownButtonStyles.width = "400px";
         dropDownItemStyles.width = "400px";
         dropDownItemStyles.mb = "3px";
+
+        leftIconProps.width = "40px";
+        leftIconProps.height = "40px";
     }
 
     const handleMenuMainButtonClick = (e) => {
-        createRoot(mainButtonRef.current.children.item(0)).render(<img src={ props.dropDownIcon } style={{marginLeft:"20px"}}/>);
+        createRoot(mainButtonRef.current.children.item(0)).render(<img src={ props.dropDownIcon } style={leftIconProps}/>);
         mainButtonRef.current.children.item(1).innerText = props.menuButtonText;
         createRoot(mainButtonRef.current.children.item(2)).render(<CgChevronDown />);
 
@@ -58,10 +90,10 @@ function TimeDropDownMenu(props) {
     }
 
     return (
-        <Menu className="dropDownMenuContainer">
-            <MenuButton ref={mainButtonRef} className="dropDownMenuButton" as={Button}
+        <Menu>
+            <MenuButton ref={mainButtonRef} as={Button}
                 rightIcon={<CgChevronDown />}
-                leftIcon={<img src={ props.dropDownIcon } style={{marginLeft:"20px"}}/>}
+                leftIcon={<img src={ props.dropDownIcon } style={leftIconProps}/>}
                 value='none'
                 sx={ dropDownButtonStyles }
                 onClick={handleMenuMainButtonClick}
