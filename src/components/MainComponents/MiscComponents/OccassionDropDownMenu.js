@@ -37,12 +37,6 @@ function CustomDropDownMenu(props) {
         height: "60px",
     }
 
-    let leftIconProps = {
-        marginLeft: "20px",
-        width: "40px",
-        height: "40px",
-    }
-
     if (screenWidth <= 800) {
         dropDownButtonStyles.width = "300px";
         dropDownButtonStyles.alignSelf = "center";
@@ -54,21 +48,15 @@ function CustomDropDownMenu(props) {
         dropDownItemStyles.fontSize = "21px";
         dropDownItemStyles.height= "32px";
         dropDownItemStyles.mb = "2%";
-
-        leftIconProps.width = "24px";
-        leftIconProps.height = "24px";
     }
     else {
         dropDownButtonStyles.width = "400px";
         dropDownItemStyles.width = "400px";
         dropDownItemStyles.mb = "3px";
-
-        leftIconProps.width = "40px";
-        leftIconProps.height = "40px";
     }
 
     const handleMenuMainButtonClick = (e) => {
-        createRoot(mainButtonRef.current.children.item(0)).render(<img src={ props.dropDownIcon } style={leftIconProps}/>);
+        createRoot(mainButtonRef.current.children.item(0)).render(<img className="occasion-dropdown-menu-icon" src={ props.dropDownIcon } />);
         mainButtonRef.current.children.item(1).innerText = props.menuButtonText;
         createRoot(mainButtonRef.current.children.item(2)).render(<CgChevronDown />);
 
@@ -93,7 +81,7 @@ function CustomDropDownMenu(props) {
         <Menu>
             <MenuButton ref={mainButtonRef} as={Button}
                 rightIcon={<CgChevronDown />}
-                leftIcon={<img src={ props.dropDownIcon } style={leftIconProps}/>}
+                leftIcon={<img className="occasion-dropdown-menu-icon" src={ props.dropDownIcon } />}
                 value='none'
                 sx={ dropDownButtonStyles }
                 onClick={handleMenuMainButtonClick}

@@ -124,6 +124,18 @@ form > div:last-child {
     margin-top: 3%;
 }
 
+.time-dropdown-menu-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+.occasion-dropdown-menu-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
 /* Large Mobile And Small Tablets and below */
 @media screen and (max-width: 1024px) {
     form {
@@ -169,6 +181,10 @@ form > div:last-child {
         align-self: center;
     }
 
+    .firstNameContainer {
+        width: 75%;
+    }
+
     .lastNameContainer {
         width: 75%;
     }
@@ -179,6 +195,10 @@ form > div:last-child {
     
     .phoneContainer {
         width: 75%;
+    }
+
+    .timeContainer {
+        margin-top: 2%;
     }
 
     form > div:not(:first-child):not(:last-child) > div > div:last-child {
@@ -232,5 +252,15 @@ form > div:last-child {
         height: 45%;
         width: 12%;
         margin-top: 2%;
+    }
+
+    .time-dropdown-menu-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .occasion-dropdown-menu-icon {
+        width: 24px;
+        height: 24px;
     }
 }
