@@ -3,9 +3,11 @@ import './BookingPage.css';
 import BookingComplete from './MainComponents/BookingComplete';
 import BookingForm from "./MainComponents/BookingForm";
 
-function BookingMain() {
+function BookingMain(props) {
     const [searchParams, setSearchParams] = useSearchParams();
-    const mainSection = searchParams.get('booking') == 'success' ? <BookingComplete /> : <BookingForm />;
+
+    const mainSection = searchParams.get('booking') == 'success' ? <BookingComplete /> :
+        <BookingForm availableTimesState={props.availableTimesState} dispatch={props.dispatch} />;
 
     return (
         <main className="bookingMainContainer">

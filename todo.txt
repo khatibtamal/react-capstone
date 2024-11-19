@@ -1,3 +1,0 @@
-1. take menu css out to css file
-4. make the two menu buttons in one file
-6. make hamburger menu for mobile

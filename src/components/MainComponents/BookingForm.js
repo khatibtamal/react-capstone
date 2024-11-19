@@ -10,14 +10,14 @@ import * as Yup from 'yup';
 import clockIcon from '../../images/clock.png';
 import occassionLogo from '../../images/occassion_logo.png';
 import validInputIcon from '../../images/valid_input.png';
-import { getTomorrowDate } from "../../utils/utility";
+import { getTodaysDate, getTwoWeeksAdvanceDate, getYesterdayDate } from "../../utils/utility";
 import './BookingForm.css';
 import OccassionDropDownMenu from "./MiscComponents/OccassionDropDownMenu";
 import TimeDropDownMenu from "./MiscComponents/TimeDropDownMenu";
 
-function BookingForm() {
+function BookingForm(props) {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [date, setDate] = useState(getTomorrowDate());
+    const [date, setDate] = useState(getTodaysDate());
 
     const availableTimes = ['11:30', '12:00', '12:30', '13:00', '13:30',
         '14:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'];
@@ -43,11 +43,17 @@ function BookingForm() {
                 email: Yup.string().email("Invalid email address").required("Required"),
                 phone: Yup.string().matches(phoneNumPattern, "Can only be 10 digits.").required('Required'),
                 guests: Yup.number().required('Required').min(1, 'Must be at least 1').max(10, 'Must be 10 or less'),
-                date: Yup.date("Invalid Date").min(new Date(), "Please book min 1 day ahead.").required('Required'),
+                date: Yup.date("Invalid Date").min(getYesterdayDate(), "Cannot book before today").max(getTwoWeeksAdvanceDate(), "Max 2 weeks advance booking").required('Required'),
                 time: Yup.string().matches(availableTimesPattern, "Select from available time.").required('Required'),
             }),
             onSubmit: values => {
                 console.log(values);
+                props.dispatch({
+                    booking: {
+                        date: values.date,
+                        time: values.time
+                    }
+                });
                 setSearchParams({ booking: 'success',
                     firstName: values.firstName,
                     lastName: values.lastName,
@@ -77,7 +83,10 @@ function BookingForm() {
     }
 
     return (
-        <form onSubmit={ formik.handleSubmit }>
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            formik.handleSubmit();
+        }}>
             <div>
                 <h1>Reserve a table</h1>
             </div>
@@ -130,7 +139,8 @@ function BookingForm() {
                             calendarIconClassName="date-picker-calendar-icon"
                             wrapperClassName="react-datepicker-wrapper"
                             selected={date}
-                            minDate={getTomorrowDate()}
+                            minDate={getTodaysDate()}
+                            maxDate={getTwoWeeksAdvanceDate()}
                             onChange={(e) => {
                                 formik.setFieldValue('date', e);
                                 formik.touched.date = true;
@@ -161,7 +171,8 @@ function BookingForm() {
                     <div className="inputArea">
                         <TimeDropDownMenu dropDownIcon={ clockIcon }
                             menuButtonText='Time'
-                            menuItems={ availableTimes }
+                            availableTimesState={ props.availableTimesState }
+                            selectedDate={ date }
                             dropDownMenuCallback={ (e) => {
                                 formik.touched.time = true;
                                 formik.setFieldValue('time', e);

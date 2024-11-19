@@ -3,7 +3,7 @@ import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { useEffect, useRef, useState } from "react";
 import { createRoot } from 'react-dom/client';
 import { CgChevronDown, CgChevronUp } from "react-icons/cg";
-import { convertTo12Hour } from "../../../utils/utility.js";
+import { convertDateObjectToSimpleDateString, convertTo12Hour } from "../../../utils/utility.js";
 
 function TimeDropDownMenu(props) {
     const mainButtonRef = useRef();
@@ -96,7 +96,7 @@ function TimeDropDownMenu(props) {
                 overflowY='scroll'
                 backgroundColor={'rgba(255,255,255,1)'}
             >
-                { props.menuItems.map((item) =>
+                { props.availableTimesState.get(convertDateObjectToSimpleDateString(props.selectedDate)).map((item) =>
                     <MenuItem onClick={handleMenuItemButtonClick}
                         sx={dropDownItemStyles}
                         value={item}
