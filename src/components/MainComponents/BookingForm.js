@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSearchParams } from "react-router-dom";
 import * as Yup from 'yup';
+import { submitAPI } from "../../ExternalApi";
 import clockIcon from '../../images/clock.png';
 import occassionLogo from '../../images/occassion_logo.png';
 import validInputIcon from '../../images/valid_input.png';
@@ -45,22 +46,27 @@ function BookingForm(props) {
                 time: Yup.string().matches(availableTimesPattern, "Select from available time.").required('Required'),
             }),
             onSubmit: values => {
-                props.dispatch({
-                    booking: {
+                if (submitAPI(values)) {
+                    props.dispatch({
+                        booking: {
+                            date: values.date,
+                            time: values.time
+                        }
+                    });
+                    setSearchParams({ booking: 'success',
+                        firstName: values.firstName,
+                        lastName: values.lastName,
+                        email: values.email,
+                        phone: values.phone,
                         date: values.date,
-                        time: values.time
-                    }
-                });
-                setSearchParams({ booking: 'success',
-                    firstName: values.firstName,
-                    lastName: values.lastName,
-                    email: values.email,
-                    phone: values.phone,
-                    date: values.date,
-                    time: values.time,
-                    guests: values.guests,
-                    occassion: values.occassion
-                });
+                        time: values.time,
+                        guests: values.guests,
+                        occassion: values.occassion
+                    });
+                }
+                else {
+                    alert("Could not complete booking try again later.");
+                }
             }
         }
     );
