@@ -40,7 +40,7 @@ function Testimonials() {
                 <div>
                     {testimonialsData.map((testimonial) => {
                         return (
-                            <TestimonialsCard name={testimonial.name} imageSrc={testimonial.imageSrc} stars={testimonial.stars} body={testimonial.body}/>
+                            <TestimonialsCard key={testimonial.name} name={testimonial.name} imageSrc={testimonial.imageSrc} stars={testimonial.stars} body={testimonial.body}/>
                         );
                     })}
                 </div>

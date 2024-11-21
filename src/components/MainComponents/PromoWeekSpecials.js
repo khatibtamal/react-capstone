@@ -38,7 +38,7 @@ function PromoWeekSpecials() {
                 <div>
                     {
                         specialsData.map((special) => {
-                            return <OnlineDeliveryMenuCard imageSrc={special.imgSource} title={special.title} price={special.price} body={special.body}/>
+                            return <OnlineDeliveryMenuCard key={special.title} imageSrc={special.imgSource} title={special.title} price={special.price} body={special.body}/>
                         })
                     }
                 </div>

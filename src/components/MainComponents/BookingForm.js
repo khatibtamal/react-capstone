@@ -19,9 +19,7 @@ function BookingForm(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [date, setDate] = useState(getTodaysDate());
 
-    const availableTimes = ['11:30', '12:00', '12:30', '13:00', '13:30',
-        '14:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00'];
-    const availableTimesPattern = new RegExp(availableTimes.join('|'));
+    const availableTimesPattern = /^(\d{2}:)?\d{2}$/;
     const phoneNumPattern = /^\d{10}$/;
     const occasions = ['none', 'Birthdays', 'Anniversaries', 'Engagements'];
     const dropDownMenuItems = ['Birthdays', 'Anniversaries', 'Engagements'];

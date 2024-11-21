@@ -23,6 +23,7 @@ dayMap.set(6, 'Saturday');
 
 export function convertTo12Hour(time) {
     let [hours, minutes] = time.split(':');
+    minutes = minutes ? minutes : '00';
     let period = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12 || 12;
     return `${hours}:${minutes} ${period}`;

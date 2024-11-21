@@ -3,6 +3,7 @@ import React, { act } from "react";
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import App from "../../App";
 import useAvailableTimes from "../../hooks/useAvailableTimes";
+import { convertDateObjectToSimpleDateString, convertTo12Hour, getTodaysDate } from "../../utils/utility";
 import BookingMain from "../BookingPage";
 
 const { reducerFunction, initializeAvailableTimes } = useAvailableTimes();
@@ -44,12 +45,16 @@ test('User submits validated booking form', async () => {
         fireEvent.click(screen.getByText("Time"));
     });
     
+    const todayDateString = convertDateObjectToSimpleDateString(getTodaysDate());
+    const todaysTimesArr = availableTimes.get(todayDateString);
+    const todayFirstTime = convertTo12Hour(todaysTimesArr[0]);
+
     await waitFor(() => {
-        expect(screen.getByText("11:30 AM")).toBeInTheDocument();
+        expect(screen.getByText(todayFirstTime)).toBeInTheDocument();
     });
 
     act(() => {
-        const timeButton = screen.getByText("11:30 AM");
+        const timeButton = screen.getByText(todayFirstTime);
         fireEvent.click(timeButton);
     });
 
@@ -65,13 +70,6 @@ test('User submits validated booking form', async () => {
     act(() => {
         fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
     });
-
-    const expectedAction = {
-        booking: {
-            date: availableTimes.entries().next().key,
-            time: "11:30",
-        }
-    }
     
     await waitFor(() => {
         expect(screen.getByText("Reservation Complete!")).toBeInTheDocument();
