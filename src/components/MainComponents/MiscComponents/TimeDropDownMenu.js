@@ -100,6 +100,7 @@ function TimeDropDownMenu(props) {
                     <MenuItem onClick={handleMenuItemButtonClick}
                         sx={dropDownItemStyles}
                         value={item}
+                        key={item}
                         id={item}>{convertTo12Hour(item)}
                     </MenuItem> )
                 }

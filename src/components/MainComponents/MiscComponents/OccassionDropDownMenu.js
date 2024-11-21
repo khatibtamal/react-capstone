@@ -93,6 +93,7 @@ function CustomDropDownMenu(props) {
                     <MenuItem onClick={handleMenuItemButtonClick}
                         sx={dropDownItemStyles}
                         value={item}
+                        key={item}
                         id={item}>{item}
                     </MenuItem> )
                 }

@@ -47,7 +47,6 @@ function BookingForm(props) {
                 time: Yup.string().matches(availableTimesPattern, "Select from available time.").required('Required'),
             }),
             onSubmit: values => {
-                console.log(values);
                 props.dispatch({
                     booking: {
                         date: values.date,
@@ -146,7 +145,7 @@ function BookingForm(props) {
                                 formik.touched.date = true;
                                 setDate(e);
                             }}
-                            customInput={<Input className="date-picker-custom-input"  />}
+                            customInput={<Input className="date-picker-custom-input" name="Date" />}
                         />
                     </div>
                     <div>{errorComponent(formik.touched.date, formik.errors.date)}</div>
