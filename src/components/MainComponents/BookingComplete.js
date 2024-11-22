@@ -27,7 +27,7 @@ function BookingComplete() {
                 You will also get a reminder phone call at <span>{searchParams.get('phone')}</span> on the day of the reservation.</p>
 
             <p>If you choose to edit or cancel the reservation, please follow the <span>Manage Booking</span> section in the email.</p>
-            <button className="app-button" onClick={ handleClick }>Home</button>
+            <button className="app-button" aria-label="On Click" onClick={ handleClick }>Home</button>
         </section>
     );
 }

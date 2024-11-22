@@ -31,7 +31,7 @@ function PromoWeekSpecials() {
             <div className='outerBaseFlexRowContainer'>
                 <div>
                     <h1>This weeks specials!</h1>
-                    <button className="app-button">Online Menu</button>
+                    <button aria-label="On Click" className="app-button">Online Menu</button>
                 </div>
             </div>
             <div className='outerBaseFlexRowContainer'>
