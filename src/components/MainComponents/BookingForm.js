@@ -11,7 +11,7 @@ import { submitAPI } from "../../ExternalApi";
 import clockIcon from '../../images/clock.png';
 import occassionLogo from '../../images/occassion_logo.png';
 import validInputIcon from '../../images/valid_input.png';
-import { getTodaysDate, getTwoWeeksAdvanceDate, getYesterdayDate } from "../../utils/utility";
+import { convertDateObjectToSimpleDateString, getTodaysDate, getTwoWeeksAdvanceDate, getYesterdayDate } from "../../utils/utility";
 import './BookingForm.css';
 import OccassionDropDownMenu from "./MiscComponents/OccassionDropDownMenu";
 import TimeDropDownMenu from "./MiscComponents/TimeDropDownMenu";
@@ -42,8 +42,8 @@ function BookingForm(props) {
                 email: Yup.string().email("Invalid email address").required("Required"),
                 phone: Yup.string().matches(phoneNumPattern, "Can only be 10 digits.").required('Required'),
                 guests: Yup.number().required('Required').min(1, 'Must be at least 1').max(10, 'Must be 10 or less'),
-                date: Yup.date("Invalid Date").min(getYesterdayDate(), "Cannot book before today").max(getTwoWeeksAdvanceDate(), "Max 2 weeks advance booking").required('Required'),
-                time: Yup.string().matches(availableTimesPattern, "Select from available time.").required('Required'),
+                date: Yup.date("Invalid Date").required('Required').min(getYesterdayDate(), "Cannot book before today").max(getTwoWeeksAdvanceDate(), "Max 2 weeks advance booking"),
+                time: Yup.string().required('Required').matches(availableTimesPattern, "Select from available time."),
             }),
             onSubmit: values => {
                 if (submitAPI(values)) {
@@ -77,12 +77,17 @@ function BookingForm(props) {
                 return <FormErrorMessage className="validation-message">{errors}</FormErrorMessage>
             }
             else {
-                return <img src={validInputIcon} width={35} height={30}/>
+                return <img className="success-image" src={validInputIcon} width={35} height={30}/>
             }
         }
         else {
             return <></>
         }
+    }
+
+    const triggerDateChangedEvent = () => {
+        const event = new CustomEvent("dateChanged", {});
+        window.dispatchEvent(event);
     }
 
     return (
@@ -145,14 +150,20 @@ function BookingForm(props) {
                             minDate={getTodaysDate()}
                             maxDate={getTwoWeeksAdvanceDate()}
                             onChange={(e) => {
-                                formik.setFieldValue('date', e);
                                 formik.touched.date = true;
+                                formik.setFieldValue('date', e);
                                 setDate(e);
+                                if (e && date && (convertDateObjectToSimpleDateString(new Date(e)) != convertDateObjectToSimpleDateString(date))) {
+                                    triggerDateChangedEvent();
+                                }
+                                else if (e && !date || !e && date) {
+                                    triggerDateChangedEvent();
+                                }
                             }}
                             customInput={<Input className="date-picker-custom-input" name="Date" />}
                         />
                     </div>
-                    <div>{errorComponent(formik.touched.date, formik.errors.date)}</div>
+                    <div>{(date && errorComponent(formik.touched.date, formik.errors.date)) || (!date && <FormErrorMessage className="validation-message">Required</FormErrorMessage>)}</div>
                 </FormControl>
             </div>
             

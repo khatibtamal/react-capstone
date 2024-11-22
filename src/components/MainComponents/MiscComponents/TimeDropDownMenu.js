@@ -9,16 +9,29 @@ function TimeDropDownMenu(props) {
     const mainButtonRef = useRef();
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+    const handleMenuMainButtonClick = (e) => {
+        createRoot(mainButtonRef.current.children.item(0)).render(<img className="time-dropdown-menu-icon" src={ props.dropDownIcon }/>);
+        mainButtonRef.current.children.item(1).innerText = props.menuButtonText;
+        createRoot(mainButtonRef.current.children.item(2)).render(<CgChevronDown />);
+
+        mainButtonRef.current.style.backgroundColor = "#EDEFEE";
+        mainButtonRef.current.style.color = 'black';
+
+        props.dropDownMenuCallback(e.target.value);
+    }
+
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
         }
 
         window.addEventListener('resize', handleResize);
+        window.addEventListener('dateChanged', handleMenuMainButtonClick);
 
         //useEffect returns a cleanup function
         return () => {
             window.removeEventListener('resize', handleResize);
+            window.removeEventListener('dateChanged', handleMenuMainButtonClick);
         }
     }, [])
 
@@ -57,17 +70,6 @@ function TimeDropDownMenu(props) {
         dropDownItemStyles.mb = "3px";
     }
 
-    const handleMenuMainButtonClick = (e) => {
-        createRoot(mainButtonRef.current.children.item(0)).render(<img className="time-dropdown-menu-icon" src={ props.dropDownIcon }/>);
-        mainButtonRef.current.children.item(1).innerText = props.menuButtonText;
-        createRoot(mainButtonRef.current.children.item(2)).render(<CgChevronDown />);
-
-        mainButtonRef.current.style.backgroundColor = "#EDEFEE";
-        mainButtonRef.current.style.color = 'black';
-
-        props.dropDownMenuCallback(e.target.value);
-    }
-
     const handleMenuItemButtonClick = (e) => {
         createRoot(mainButtonRef.current.children.item(0)).render(<div></div>);
         mainButtonRef.current.children.item(1).innerText = convertTo12Hour(e.target.value);
@@ -96,7 +98,7 @@ function TimeDropDownMenu(props) {
                 overflowY='scroll'
                 backgroundColor={'rgba(255,255,255,1)'}
             >
-                { props.availableTimesState.get(convertDateObjectToSimpleDateString(props.selectedDate)).map((item) =>
+                { props.selectedDate && props.availableTimesState.get(convertDateObjectToSimpleDateString(props.selectedDate)).map((item) =>
                     <MenuItem onClick={handleMenuItemButtonClick}
                         sx={dropDownItemStyles}
                         value={item}
