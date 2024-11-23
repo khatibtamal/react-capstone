@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import * as Yup from 'yup';
 import { submitAPI } from "../../ExternalApi";
 import clockIcon from '../../images/clock.png';
@@ -19,6 +19,7 @@ import TimeDropDownMenu from "./MiscComponents/TimeDropDownMenu";
 function BookingForm(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [date, setDate] = useState(getTodaysDate());
+    const navigate = useNavigate();
 
     const availableTimesPattern = /^(\d{2}:)?\d{2}$/;
     const phoneNumPattern = /^\d{10}$/;
@@ -227,6 +228,7 @@ function BookingForm(props) {
 
             <div>
                 <button aria-label="On Click form submit to complete booking" className="app-button" type="submit">Book Now</button>
+                <button aria-label="On Click the form fill up will be canceled and you will re directed to home" className="app-button form-cancel-button" onClick={() => {navigate("/")}}>Cancel</button>
             </div>
         </form>
     );
