@@ -15,6 +15,7 @@ function PromoReserveTable() {
             <div>
                 <LittleLemonBio
                     buttonLabel="Reserve a table"
+                    buttonAriaLabelText="On Click you will be taken to booking page"
                     buttonCallback={buttonCallback}
                     h1Color="#F4CE14"
                     h2Color="white"

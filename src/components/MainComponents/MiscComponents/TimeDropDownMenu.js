@@ -89,7 +89,7 @@ function TimeDropDownMenu(props) {
                 value='none'
                 sx={ dropDownButtonStyles }
                 onClick={handleMenuMainButtonClick}
-                aria-label="On Click"
+                aria-label="On Click the time selection drop down menu will open"
             >
                 { props.menuButtonText }
             </MenuButton>
@@ -104,7 +104,7 @@ function TimeDropDownMenu(props) {
                         sx={dropDownItemStyles}
                         value={item}
                         key={item}
-                        aria-label="On Click"
+                        aria-label={`On Click the time ${convertTo12Hour(item)} will be selected`}
                         id={item}>{convertTo12Hour(item)}
                     </MenuItem> )
                 }

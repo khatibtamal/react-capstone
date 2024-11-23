@@ -226,7 +226,7 @@ function BookingForm(props) {
             </div>
 
             <div>
-                <button aria-label="On Click" className="app-button" type="submit">Book Now</button>
+                <button aria-label="On Click form submit to complete booking" className="app-button" type="submit">Book Now</button>
             </div>
         </form>
     );

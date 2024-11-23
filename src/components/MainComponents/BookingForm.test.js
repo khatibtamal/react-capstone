@@ -37,7 +37,7 @@ describe('Basic booking forms test', () => {
         );
     
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         
         await waitFor(() => {
@@ -75,7 +75,7 @@ describe('Basic booking forms test', () => {
         });
     
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         
         await waitFor(() => {
@@ -102,7 +102,7 @@ describe("First Name validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -134,7 +134,7 @@ describe("First Name validation", () => {
             fireEvent.change(firstName, { target: { value: "sdkjhfskjhfkjshdkfjhskdjfkjsdhfkjsdhfkjshdkfjskdjhfkjsdhfkjsdfh" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Maximum 20 characters")).toBeInTheDocument();
@@ -159,7 +159,7 @@ describe("Last Name validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -191,7 +191,7 @@ describe("Last Name validation", () => {
             fireEvent.change(lastName, { target: { value: "sdkjhfskjhfkjshdkfjhskdjfkjsdhfkjsdhfkjshdkfjskdjhfkjsdhfkjsdfh" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Maximum 20 characters")).toBeInTheDocument();
@@ -216,7 +216,7 @@ describe("Email validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -248,7 +248,7 @@ describe("Email validation", () => {
             fireEvent.change(email, { target: { value: "blah" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Invalid email address")).toBeInTheDocument();
@@ -274,7 +274,7 @@ describe("Phone validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -306,7 +306,7 @@ describe("Phone validation", () => {
             fireEvent.change(phone, { target: { value: "1" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Can only be 10 digits.")).toBeInTheDocument();
@@ -328,7 +328,7 @@ describe("Phone validation", () => {
             fireEvent.change(phone, { target: { value: "11111111111" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Can only be 10 digits.")).toBeInTheDocument();
@@ -350,7 +350,7 @@ describe("Phone validation", () => {
             fireEvent.change(phone, { target: { value: "asdasdasdf" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Can only be 10 digits.")).toBeInTheDocument();
@@ -381,7 +381,7 @@ describe("Guests validation", () => {
         });
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -412,7 +412,7 @@ describe("Guests validation", () => {
             fireEvent.change(guests, { target: { value: "25" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Must be 10 or less")).toBeInTheDocument();
@@ -434,7 +434,7 @@ describe("Guests validation", () => {
             fireEvent.change(guests, { target: { value: "0" } });
         });
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
         await waitFor(() => {
             expect(screen.getByText("Must be at least 1")).toBeInTheDocument();
@@ -460,7 +460,7 @@ describe("Date validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -473,7 +473,7 @@ describe("Date validation", () => {
         });
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -500,7 +500,7 @@ describe("Time validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
@@ -519,7 +519,7 @@ describe("Time validation", () => {
         );
 
         act(() => {
-            fireEvent.click(screen.getByRole("button", { name: "Book Now" }));
+            fireEvent.click(screen.getByLabelText("On Click form submit to complete booking"));
         });
 
         await waitFor(() => {
